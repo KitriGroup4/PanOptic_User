@@ -40,6 +40,9 @@ public class Order extends JFrame {
     public OrderFoodPane FoodPane;
     public OrderListener listener;
     public CardLayout cl_OrderContentsPane = new CardLayout();
+    
+    
+//    public Vector foods;
 
     /**
      * Launch the application.
@@ -85,9 +88,11 @@ public class Order extends JFrame {
 	OrderContentsPane = new JPanel();
 
 	OrderContentsPane.setLayout(cl_OrderContentsPane);
+	
 	BeveragePane = new OrderBeveragePane();
 	SnackPane = new OrderSnackPane();
 	FoodPane = new OrderFoodPane();
+	
 	OrderContentsPane.add(FoodPane, "1");
 	OrderContentsPane.add(BeveragePane, "2");
 	OrderContentsPane.add(SnackPane, "3");

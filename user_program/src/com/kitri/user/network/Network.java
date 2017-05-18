@@ -209,6 +209,7 @@ public class Network implements Runnable {
 	buff.append("/");
 	buff.append(data);
 	buff.append("!");
+	Main.log(buff.toString());
 
 	writer.println(buff.toString());
     }
@@ -224,6 +225,7 @@ public class Network implements Runnable {
 	buff.append("/");
 	buff.append(data);
 	buff.append("!");
+	Main.log(buff.toString());
 
 	writer.println(buff.toString());
     }
@@ -255,6 +257,7 @@ public class Network implements Runnable {
 	buff.append("/");
 	buff.append(data);
 	buff.append("!");
+	Main.log(buff.toString());
 
 	Main.log(buff.toString());
 	writer.println(buff.toString());
@@ -271,6 +274,7 @@ public class Network implements Runnable {
 	buff.append("/");
 	buff.append(data);
 	buff.append("!");
+	Main.log(buff.toString());
 
 	writer.println(buff.toString());
     }

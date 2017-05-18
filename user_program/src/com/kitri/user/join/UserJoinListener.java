@@ -18,7 +18,7 @@ public class UserJoinListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 	Object o = e.getSource();
 	if (o == join.overCheckBtn) {
-	    checkId(join.joinId.toString().trim());
+	    checkId(join.joinId.getText().toString().trim());
 	} else 	if (o == join.joinConfirmBtn) {
 	    joinUser();
 	} else 	if (o == join.joinCloseBtn) {

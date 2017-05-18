@@ -5,7 +5,7 @@ import com.kitri.user.network.Network;
 
 public class Main {
     // public static UserLogin mView;
-    public static boolean isLog;
+    public static boolean isLog = true;
     public static Network network;
 
     public static void main(String[] args) {
