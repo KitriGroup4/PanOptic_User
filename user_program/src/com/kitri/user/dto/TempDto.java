@@ -4,6 +4,6 @@ public class TempDto {
 
     
     
-    
+    int a = 0;
     
 }
