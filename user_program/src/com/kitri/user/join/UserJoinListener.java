@@ -3,7 +3,9 @@ package com.kitri.user.join;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.kitri.user.dto.UserInfoDto;
 import com.kitri.user.main.Main;
+import com.kitri.user.network.PacketInformation;
 
 public class UserJoinListener implements ActionListener {
     UserJoin join;
@@ -16,37 +18,70 @@ public class UserJoinListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 	Object o = e.getSource();
 	if (o == join.overCheckBtn) {
-
-	}
-	if (o == join.joinConfirmBtn) {
+	    checkId(join.joinId.toString().trim());
+	} else 	if (o == join.joinConfirmBtn) {
 	    joinUser();
-	}
-	if (o == join.joinCloseBtn) {
+	} else 	if (o == join.joinCloseBtn) {
 	    join.setVisible(false);
+	} else if (o == join.maleRadio){
+	    join.isMale = true;
+	} else if( o == join.femaleRadio){
+	    join.isMale = false;
+	}
+    }
+
+    private void checkId(String id) {
+	if (!id.isEmpty() && !id.equals("")) {
+	    Main.network.sendPacket(PacketInformation.Operation.JOIN, PacketInformation.PacketType.CHECK_USER_ID, id);
 	}
     }
 
     private void joinUser() {
 
-	String id = join.joinId.getText().trim();
-	String pw = join.joinPw.getText().trim();
-	String pwCheck = join.joinPwCheck.getText().trim();
-	String Email = join.joinEmailTf.getText().trim();
-	String hp = join.joinHpTf.getText().trim();
-	String birth = join.yy.getSelectedItem() + "-" + join.mm.getSelectedItem() + "-" + join.dd.getSelectedItem();
+	if (join.checkId) {
+	    UserInfoDto dto = new UserInfoDto();
+	    String name = join.joinName.getText().trim();
+	    String id = join.joinId.getText().trim();
+	    String pw = join.joinPw.getText().trim();
+	    String pwCheck = join.joinPwCheck.getText().trim();
+	    String email = join.joinEmailTf.getText().trim();
+	    String hp = join.joinHpTf.getText().trim();
+	    String birth = join.yy.getSelectedItem() + "-" + join.mm.getSelectedItem() + "-"
+		    + join.dd.getSelectedItem();
+	    String isMale = join.isMale ? "1" : "0";
 
+	    if (checkField(pw, pwCheck, email, hp)) {
+		dto.setUserName(name);
+		dto.setUserId(id);
+		dto.setUserPw(pw);
+		dto.setUserHp(hp);
+		dto.setUserEmail(email);
+		dto.setUserBirth(birth);
+		dto.setIsMale(isMale);
+		Main.log(dto.toString());
+		Main.network.sendPacket(PacketInformation.Operation.JOIN, PacketInformation.PacketType.USER_INFO,
+			dto.toString());
+	    }
+
+	} else {
+	    join.checkIdCheckDialog();
+	}
+
+    }
+
+    private boolean checkField(String pw, String pwCheck, String email, String hp) {
 	int len = pw.length();
 	if (len < 8) {
 	    join.pwTooShort();
-	    return;
+	    return false;
 	}
 	if (!pw.equals(pwCheck)) {
 	    join.pwCheckError();
-	    return;
+	    return false;
 	}
-	if (!Email.contains("@") || !Email.contains(".")) {
+	if (!email.contains("@") || !email.contains(".") || email.startsWith("@") || email.startsWith(".")) {
 	    join.emailInputError();
-	    return;
+	    return false;
 	}
 	len = hp.length();
 	boolean isHp = true;
@@ -58,7 +93,9 @@ public class UserJoinListener implements ActionListener {
 	}
 	if (len != 11 || !hp.startsWith("010") || !isHp) {
 	    join.hpInputError();
-
+	    return false;
 	}
+
+	return true;
     }
 }

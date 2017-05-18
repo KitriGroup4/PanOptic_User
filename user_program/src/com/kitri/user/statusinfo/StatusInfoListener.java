@@ -21,7 +21,7 @@ public class StatusInfoListener implements ActionListener {
 	Object o = e.getSource();
 
 	if (o == status.statusOrderBtn) {
-	    status.c.setVisible(true);
+	    status.order.setVisible(true);
 	}
 	if (o == status.statusMypageBtn) {
 	    status.mp.setVisible(true);
@@ -37,10 +37,10 @@ public class StatusInfoListener implements ActionListener {
     }
 
     public void setStatusInfoField() {
-	status.statusId.setText(Main.network.login.dto.getUserId());
-	status.restTime.setText(Main.network.login.dto.getUserLeftTime());
+	status.statusId.setText(Main.network.view.dto.getUserId());
+	status.restTime.setText(Main.network.view.dto.getUserLeftTime());
 	// status.usetime.setText();
-	status.statusComNum.setText(Main.network.login.mainComNum.getText());
+	status.statusComNum.setText(Main.network.view.mainComNum.getText());
 	// status.point.setText(Main.network.login.dto.);Æ÷ÀÎÆ®
 
     }

@@ -28,13 +28,13 @@ public class MyPageListener implements ActionListener {
 
     public void setMyPageField() {
 
-	mp.mypg_name.setText(Main.network.login.dto.getUserName());
-	mp.mypg_id.setText(Main.network.login.dto.getUserId());
-	mp.mypg_pw_tf.setText(Main.network.login.dto.getUserPw());
-	mp.mypg_hp_tf.setText(Main.network.login.dto.getUserHp());
-	mp.mypg_mail_tf.setText(Main.network.login.dto.getUserEmail());
-	mp.mypg_accu_time.setText(Main.network.login.dto.getUserAccuTime());
-	mp.mypg_rest_time.setText(Main.network.login.dto.getUserLeftTime());
+	mp.mypg_name.setText(Main.network.view.dto.getUserName());
+	mp.mypg_id.setText(Main.network.view.dto.getUserId());
+	mp.mypg_pw_tf.setText(Main.network.view.dto.getUserPw());
+	mp.mypg_hp_tf.setText(Main.network.view.dto.getUserHp());
+	mp.mypg_mail_tf.setText(Main.network.view.dto.getUserEmail());
+	mp.mypg_accu_time.setText(Main.network.view.dto.getUserAccuTime());
+	mp.mypg_rest_time.setText(Main.network.view.dto.getUserLeftTime());
 
     }
 

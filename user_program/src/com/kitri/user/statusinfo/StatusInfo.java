@@ -10,7 +10,7 @@ import java.awt.GridLayout;
 import java.awt.TextField;
 
 public class StatusInfo extends JFrame {
-    public Order c;
+    public Order order;
     public MyPage mp;
     public Messenger msg;
     private JPanel StatusIdPane;
@@ -56,7 +56,7 @@ public class StatusInfo extends JFrame {
      * Create the frame.
      */
     public StatusInfo() {
-	c = new Order();
+	order = new Order();
 	mp = new MyPage();
 	msg = new Messenger();
 	tf = new TextField();

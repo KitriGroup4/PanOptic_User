@@ -1,17 +1,13 @@
 package com.kitri.user.login;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import com.kitri.user.dto.UserInfoDto;
 import com.kitri.user.join.UserJoin;
+import com.kitri.user.statusinfo.StatusInfo;
 
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
 import java.awt.*;
-import javax.swing.JButton;
 
 public class UserLogin extends JFrame {
 
@@ -48,6 +44,7 @@ public class UserLogin extends JFrame {
 
     public UserJoin join;
     public UserInfoDto dto;
+    public StatusInfo statusInfo;
 
     /**
      * Launch the application.
@@ -69,6 +66,7 @@ public class UserLogin extends JFrame {
      * Create the frame.
      */
     public UserLogin() {
+	statusInfo = new StatusInfo();
 	join = new UserJoin();
 	listener = new UserLoginListener(this);
 
@@ -193,4 +191,8 @@ public class UserLogin extends JFrame {
 	joinBtn.addActionListener(listener);
     }
 
+    public void joinSuccess() {
+	JOptionPane.showMessageDialog(this, "회원가입을 축하드립니다!!", "회원가입성공", JOptionPane.WARNING_MESSAGE);
+
+    }
 }

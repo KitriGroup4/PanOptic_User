@@ -24,10 +24,10 @@ public class Network implements Runnable {
     private String[] dataPacket;
 
     public Services services;
-    public UserLogin login;
+    public UserLogin view;
 
     public Network() {
-	login = new UserLogin();
+	view = new UserLogin();
 
 	Thread thread = new Thread(this);
 	thread.start();
@@ -102,7 +102,7 @@ public class Network implements Runnable {
     }
 
     private void dicisionProgram() {
-	if (PacketInformation.ProgramValue.PAYMENT == Integer
+	if (PacketInformation.ProgramValue.USER == Integer
 		.parseInt(dataPacket[PacketInformation.PacketStructrue.PROGRAM_VALUE])) {
 	    dicisionOperator(Integer.parseInt(dataPacket[PacketInformation.PacketStructrue.OPERATOR]));
 	}
@@ -161,10 +161,14 @@ public class Network implements Runnable {
 
 	switch (packetType) {
 	case PacketInformation.PacketType.CHECK_USER_ID:
+	    services.checkId(data);
 	    break;
 	case PacketInformation.PacketType.IS_OK:
+	    view.joinSuccess();
+	    view.join.setVisible(false);
 	    break;
 	case PacketInformation.PacketType.IS_FAIL:
+	    view.join.joinFailDialog();
 	    break;
 	default:
 	}

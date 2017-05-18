@@ -27,8 +27,8 @@ public class OrderFoodPane extends JPanel {
      * Create the frame.
      */
 
-    Vector col = new Vector<>();
-    Vector rowDatas = new Vector<>();
+    public Vector col = new Vector<>();
+    public Vector rowDatas = new Vector<>();
     JTable table;
 
     public OrderFoodPane() {
