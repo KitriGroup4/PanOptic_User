@@ -1,10 +1,12 @@
 package com.kitri.user.dto;
 
+import java.util.StringTokenizer;
+
 public class OrderInfoDto {
     private int orderNum;
-    private String userNum;
+    private int userNum;
     private int foodNum;
-    private int orderMony;
+    private int orderMoney;
     private int orderCount;
     private String orderTime;
     private int comNum;
@@ -17,11 +19,11 @@ public class OrderInfoDto {
 	this.orderNum = orderNum;
     }
 
-    public String getUserNum() {
+    public int getUserNum() {
 	return userNum;
     }
 
-    public void setUserNum(String userNum) {
+    public void setUserNum(int userNum) {
 	this.userNum = userNum;
     }
 
@@ -33,12 +35,12 @@ public class OrderInfoDto {
 	this.foodNum = foodNum;
     }
 
-    public int getOrderMony() {
-	return orderMony;
+    public int getOrderMoney() {
+	return orderMoney;
     }
 
-    public void setOrderMony(int orderMony) {
-	this.orderMony = orderMony;
+    public void setOrderMoney(int orderMoney) {
+	this.orderMoney = orderMoney;
     }
 
     public int getOrderCount() {
@@ -63,6 +65,75 @@ public class OrderInfoDto {
 
     public void setComNum(int comNum) {
 	this.comNum = comNum;
+    }
+
+    public void setFieldToInsert(String data) {
+	StringTokenizer token = new StringTokenizer(data, ",");
+	int i = 1;
+	String temp;
+
+	while (token.hasMoreTokens()) {
+	    temp = token.nextToken();
+	    switch (i++) {
+	    case 1:
+		userNum = Integer.parseInt(temp);
+		break;
+	    case 2:
+		foodNum = Integer.parseInt(temp);
+		break;
+	    case 3:
+		orderMoney = Integer.parseInt(temp);
+		break;
+	    case 5:
+		orderTime = temp;
+		break;
+	    case 6:
+		comNum = Integer.parseInt(temp);
+		break;
+	    default:
+	    }
+	}
+    }
+
+    public void setField(String data) {
+	StringTokenizer token = new StringTokenizer(data, ",");
+	int i = 0;
+	String temp;
+
+	while (token.hasMoreTokens()) {
+	    temp = token.nextToken();
+	    switch (i++) {
+	    case 0:
+		orderNum = Integer.parseInt(temp);
+		break;
+	    case 1:
+		userNum = Integer.parseInt(temp);
+		break;
+	    case 2:
+		foodNum = Integer.parseInt(temp);
+		break;
+	    case 3:
+		orderMoney = Integer.parseInt(temp);
+		break;
+	    case 5:
+		orderTime = temp;
+		break;
+	    case 6:
+		comNum = Integer.parseInt(temp);
+		break;
+	    default:
+	    }
+	}
+    }
+
+    public String insertToString() {
+	return userNum + "," + foodNum + "," + orderMoney + "," + orderCount + "," + orderTime + "," + comNum;
+    }
+
+    @Override
+    public String toString() {
+	return orderNum + "," + userNum + "," + foodNum + "," + orderMoney + "," + orderCount + "," + orderTime + ","
+		+ comNum;
     }
 
 }

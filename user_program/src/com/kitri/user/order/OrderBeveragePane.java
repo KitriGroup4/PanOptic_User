@@ -17,7 +17,6 @@ public class OrderBeveragePane extends JPanel {
     // ={"3000원","4000원","3500원","5000원","5000원","3500원","3500원",
     // "3500원","3500원","3500원","4000원","4000원","4000원","4000원","3000원","3000원","3000원"};
     //
-    Vector col = new Vector<>();
     Vector rowDatas = new Vector<>();
     JTable table;
     Order order;
@@ -28,10 +27,7 @@ public class OrderBeveragePane extends JPanel {
      */
     public OrderBeveragePane(Order order) {
 	this.order = order;
-	col.add("사진");
-	col.add("음료메뉴");
-	col.add("가격");
-
+	
 	// Vector temp = new Vector();
 	// temp.add("img");
 	// temp.add("아메리카노");
@@ -63,7 +59,7 @@ public class OrderBeveragePane extends JPanel {
 
 	}
 
-	DefaultTableModel model = new DefaultTableModel(rowDatas, col) {
+	DefaultTableModel model = new DefaultTableModel(rowDatas, order.col) {
 	    @Override
 	    public boolean isCellEditable(int row, int column) {
 		return false;

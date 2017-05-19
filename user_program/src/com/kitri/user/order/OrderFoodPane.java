@@ -32,7 +32,6 @@ public class OrderFoodPane extends JPanel {
      * Create the frame.
      */
 
-    Vector col = new Vector<>();
     Vector rowDatas = new Vector<>();
     public JTable table;
     Order order;
@@ -41,9 +40,6 @@ public class OrderFoodPane extends JPanel {
     public OrderFoodPane(Order order) {
 	this.order = order;
 	// String columnNames[] = { "사진", "음식메뉴", "가격" };
-	col.add("사진");
-	col.add("음식메뉴");
-	col.add("가격");
 //	setRowData();
 	// setRowData();
 //	Vector temp = new Vector();
@@ -84,7 +80,7 @@ public class OrderFoodPane extends JPanel {
 	    
 	}
 	
-	DefaultTableModel model = new DefaultTableModel(rowDatas, col) {
+	DefaultTableModel model = new DefaultTableModel(rowDatas, order.col) {
 	    @Override
 	    public boolean isCellEditable(int row, int column) {
 		return false;

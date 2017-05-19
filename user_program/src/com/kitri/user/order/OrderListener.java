@@ -3,6 +3,8 @@ package com.kitri.user.order;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.kitri.user.dto.OrderInfoDto;
+
 public class OrderListener implements ActionListener {
     Order order;
 
@@ -16,15 +18,12 @@ public class OrderListener implements ActionListener {
 	Object o = e.getSource();
 	if (o == order.orderFoodbtn) {
 	    order.clOrderContentsPane.show(order.orderContentsPane, "1");
-	}
-	if (o == order.orderSnackbtn) {
+	} else if (o == order.orderSnackbtn) {
 	    order.clOrderContentsPane.show(order.orderContentsPane, "3");
-	}
-	if (o == order.orderBeveragebtn) {
+	} else if (o == order.orderBeveragebtn) {
 	    order.clOrderContentsPane.show(order.orderContentsPane, "2");
-	}
-	if (o == order.pointPaybtn) {
-
+	} else if (o == order.pointPaybtn) {
+	    orderByPoint();
 	}
 	// if (o == order.BeveragePane.beverageNamebtn) {
 	// sum += dto.getBeveragePrice();
@@ -39,6 +38,13 @@ public class OrderListener implements ActionListener {
 	// order.totalPriceLabel.setText(sum);
 	// }
 
+    }
+    
+    public void orderByPoint(){
+	OrderInfoDto dto = new OrderInfoDto();
+	
+	
+	
     }
 
 }

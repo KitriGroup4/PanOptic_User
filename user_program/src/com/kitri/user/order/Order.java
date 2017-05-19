@@ -21,6 +21,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -52,6 +53,7 @@ public class Order extends JFrame {
     public ArrayList<FoodDto> foods;
     public ArrayList<FoodDto> snacks;
     public ArrayList<FoodDto> beverages;
+    public Vector col = new Vector<>();
 
     /**
      * Launch the application.
@@ -75,6 +77,12 @@ public class Order extends JFrame {
     public Order() {
 	listener = new OrderListener(this);
 	mListener = new OrderMouseListener(this);
+	
+
+	col.add("사진");
+	col.add("음료메뉴");
+	col.add("가격");
+
 
 	setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	setBounds(100, 100, 900, 600);

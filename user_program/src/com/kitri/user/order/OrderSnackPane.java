@@ -21,16 +21,12 @@ public class OrderSnackPane extends JPanel {
 	 * Create the panel.
 	 */
 
-	Vector col = new Vector<>();
 	Vector rowDatas = new Vector<>();
 	JTable table;
 	Order order;
 	JScrollPane scrollPane;
 	public OrderSnackPane(Order order) {
 		this.order = order;
-		col.add("사진");
-		col.add("스낵메뉴");
-		col.add("가격");
 		
 //		Vector temp = new Vector<>();
 //		temp.add("img");
@@ -64,7 +60,7 @@ public class OrderSnackPane extends JPanel {
 		    
 		}
 		
-		DefaultTableModel model = new DefaultTableModel(rowDatas, col) {
+		DefaultTableModel model = new DefaultTableModel(rowDatas, order.col) {
 		    @Override
 		    public boolean isCellEditable(int row, int column) {
 			return false;
