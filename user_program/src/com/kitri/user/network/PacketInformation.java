@@ -42,6 +42,8 @@ public class PacketInformation {
 	public static final byte TIME = 8;
 	public static final byte CARD = 9;
 	public static final byte FOOD = 10;
+	public static final byte FOOD_TYPE = 11;
+	public static final byte IS_END = 12;
     }
 
     public static class ComPrepaidInfo {

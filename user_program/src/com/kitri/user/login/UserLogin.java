@@ -12,7 +12,7 @@ import java.awt.*;
 public class UserLogin extends JFrame {
 
     private JPanel contentPane;
-    public JTextField pwTf;
+    public JPasswordField pwTf;
     private JPanel EmptyPane;
     private JPanel EmptyPane1;
     private JPanel UserMainComPane;
@@ -45,6 +45,7 @@ public class UserLogin extends JFrame {
     public UserJoin join;
     public UserInfoDto dto;
     public StatusInfo statusInfo;
+    public int userNum;
 
     /**
      * Launch the application.
@@ -142,7 +143,7 @@ public class UserLogin extends JFrame {
 	emptyLabel6 = new JLabel("");
 	LoginInputPane.add(emptyLabel6);
 
-	pwTf = new JTextField();
+	pwTf = new JPasswordField();
 	pwTf.setColumns(10);
 	LoginInputPane.add(pwTf);
 
@@ -189,6 +190,7 @@ public class UserLogin extends JFrame {
 	device.setFullScreenWindow(this);
 
 	joinBtn.addActionListener(listener);
+	loginBtn.addActionListener(listener);
     }
 
     public void joinSuccess() {

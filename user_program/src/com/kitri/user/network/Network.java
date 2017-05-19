@@ -150,6 +150,7 @@ public class Network implements Runnable {
 	String data = dataPacket[PacketInformation.PacketStructrue.DATA];
 	switch (packetType) {
 	case PacketInformation.PacketType.IS_OK:
+	    services.loginSuccess(data);
 	    break;
 	case PacketInformation.PacketType.IS_FAIL:
 	    break;
@@ -191,6 +192,15 @@ public class Network implements Runnable {
 	String data = dataPacket[PacketInformation.PacketStructrue.DATA];
 
 	switch (packetType) {
+	case PacketInformation.PacketType.FOOD:
+	    services.responseFoodDatas(data);
+	    break;
+	case PacketInformation.PacketType.FOOD_TYPE:
+	    services.respinseFoodTypeDatas(data);
+	    break;
+	case PacketInformation.PacketType.IS_END:
+	    services.isEnd(data);
+	    break;
 	case PacketInformation.PacketType.COM_PREPAID_INFO:
 	    break;
 	case PacketInformation.PacketType.POINT_INFO:

@@ -7,6 +7,10 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import com.kitri.user.dto.FoodDto;
+
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
@@ -27,55 +31,91 @@ public class OrderFoodPane extends JPanel {
      * Create the frame.
      */
 
-    public Vector col = new Vector<>();
-    public Vector rowDatas = new Vector<>();
-    JTable table;
+    Vector col = new Vector<>();
+    Vector rowDatas = new Vector<>();
+    public JTable table;
+    Order order;
+    JScrollPane scrollPane;
 
-    public OrderFoodPane() {
+    public OrderFoodPane(Order order) {
+	this.order = order;
 	// String columnNames[] = { "»çÁø", "À½½Ä¸Þ´º", "°¡°Ý" };
 	col.add("»çÁø");
 	col.add("À½½Ä¸Þ´º");
 	col.add("°¡°Ý");
+//	setRowData();
 	// setRowData();
-	// Vector temp = new Vector();
-	// temp.add("img");
-	// temp.add("¸ÅÁ¦");
-	// temp.add(5000);
-	// rowDatas.addElement(temp);
-	// temp = new Vector<>();
-	// temp.add("img");
-	// temp.add("±èÄ¡Âò");
-	// temp.add("25000");
-	// rowDatas.addElement(temp);
+//	Vector temp = new Vector();
+//	temp.add("img");
+//	temp.add("¸ÅÁ¦");
+//	temp.add(5000);
+//	rowDatas.addElement(temp);
+//	temp = new Vector<>();
+//	temp.add("img");
+//	temp.add("±èÄ¡Âò");
+//	temp.add(25000);
+//	rowDatas.addElement(temp);
 
 	// Object rowData[][] = { { "img", "¸ÅÄÞÁ¦À°µ¤¹ä", "5000¿ø" }, { "img",
 	// "¼ÒºÒ°í±âµ¤¹ä", "6000¿ø" } };
 
 	// JTable jTable = new JTable(rowData, columnNames);
-	table = new JTable(rowDatas, col);
+	
 
-	JScrollPane scrollPane = new JScrollPane(table);
+
+	table = new JTable();
+	table.addMouseListener(order.mListener);
+
+    }
+
+    public void setRowData() {
+	int size = order.foods.size();
+	rowDatas = new Vector<>();
+	Vector temp;
+	FoodDto foodTemp;
+	for (int i = 0; i < size; i++) {
+	    foodTemp = order.foods.get(i);
+	    temp = new Vector<>();
+	    temp.add(foodTemp.getFoodNum());
+	    temp.add(foodTemp.getFoodName());
+	    temp.add(foodTemp.getFoodPrice());
+	    rowDatas.addElement(temp);
+	    
+	}
+	
+	DefaultTableModel model = new DefaultTableModel(rowDatas, col) {
+	    @Override
+	    public boolean isCellEditable(int row, int column) {
+		return false;
+	    }
+	};
+	
+	table = new JTable(model);
+	table.getTableHeader().setReorderingAllowed(false);
+	table.getTableHeader().setResizingAllowed(false);
+
+	scrollPane = new JScrollPane(table);
 	add(scrollPane);
 
     }
 
-    private void setRowData() {
-	int size = 90;
-
-	Vector temp = new Vector();
-	int count = 0;
-	for (int i = 0; i < size; i++) {
-	    if (count < 3) {
-		temp.add(i);
-		count++;
-	    } else {
-		rowDatas.addElement(temp);
-		temp = new Vector();
-		count = 0;
-	    }
-
-	}
-
-    }
+    // private void setRowData() {
+    // int size = 90;
+    //
+    // Vector temp = new Vector();
+    // int count = 0;
+    // for (int i = 0; i < size; i++) {
+    // if (count < 3) {
+    // temp.add(i);
+    // count++;
+    // } else {
+    // rowDatas.addElement(temp);
+    // temp = new Vector();
+    // count = 0;
+    // }
+    //
+    // }
+    //
+    // }
 
 }
