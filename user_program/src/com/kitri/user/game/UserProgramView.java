@@ -16,6 +16,7 @@ import javax.swing.JInternalFrame;
 import java.awt.FlowLayout;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -55,28 +56,29 @@ public class UserProgramView extends JFrame {
 	 * 
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {		
-				try {
-					UserProgramView frame = new UserProgramView();
-					frame.setVisible(true);
-//					frame.setLocationRelativeTo(null);
-					Dimension frameSize = frame.getSize(); // 프레임 사이즈
-					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // 모니터 사이즈
-					frame.setLocation((screenSize.width - frameSize.width), (screenSize.height - screenSize.height));
-					frame.setResizable(false);//창크기변경불가능하게하는거
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {		
+//				try {
+//					UserProgramView frame = new UserProgramView();
+//					frame.setVisible(true);
+////					frame.setLocationRelativeTo(null);
+//					Dimension frameSize = frame.getSize(); // 프레임 사이즈
+//					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // 모니터 사이즈
+//					frame.setLocation((screenSize.width - frameSize.width), (screenSize.height - screenSize.height));
+//					frame.setResizable(false);//창크기변경불가능하게하는거
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+	UserProgramView frame;
 	/**
 	 * Create the frame.
 	 */
 	public UserProgramView() {
+
 		gmListener = new GameViewMouseListener(this);
 		gListener = new GameChangeActionListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -148,7 +150,6 @@ public class UserProgramView extends JFrame {
 		ectBtn = new JButton("\uAE30\uD0C0");
 		gameListPane.add(ectBtn);
 		
-		setVisible(true);
 		
 		enternetBtn.addActionListener(gListener);
 		issueGameBtn.addActionListener(gListener);
@@ -157,8 +158,10 @@ public class UserProgramView extends JFrame {
 		cdGameBtn.addActionListener(gListener);
 		sportsGameBtn.addActionListener(gListener);
 		ectBtn.addActionListener(gListener);
-	
 		
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
+		this.setUndecorated(true);	
 		
 	}
 	

@@ -1,6 +1,7 @@
 package com.kitri.user.statusinfo;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -8,6 +9,7 @@ import com.kitri.user.messenger.Messenger;
 import com.kitri.user.order.Order;
 import java.awt.GridLayout;
 import java.awt.TextField;
+import java.awt.Toolkit;
 
 public class StatusInfo extends JFrame {
     public Order order;
@@ -43,7 +45,7 @@ public class StatusInfo extends JFrame {
 	EventQueue.invokeLater(new Runnable() {
 	    public void run() {
 		try {
-		    StatusInfo frame = new StatusInfo();
+			StatusInfo frame = new StatusInfo();
 		    frame.setVisible(true);
 		} catch (Exception e) {
 		    e.printStackTrace();
@@ -148,6 +150,13 @@ public class StatusInfo extends JFrame {
 	statusMypageBtn.addActionListener(listener);
 	statusMessengerBtn.addActionListener(listener);
 	comMoveBtn.addActionListener(listener);
+	
+	Dimension frameSize = this.getSize();
+	Toolkit.getDefaultToolkit().getScreenSize(); 
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+	this.setLocation((screenSize.width - frameSize.width), (screenSize.height - screenSize.height));
+	this.setResizable(false);
+	this.setUndecorated(true);
     }
 
 }

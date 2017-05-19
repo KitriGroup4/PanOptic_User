@@ -30,7 +30,7 @@ public class Services {
 	FoodTypeDto dto = new FoodTypeDto();
 	dto.setField(data);
 	// Main.log(dto.toString());
-	network.view.statusInfo.order.foodTypes.add(dto);
+		network.view.statusInfo.order.foodTypes.add(dto);
     }
 
     public void responseFoodDatas(String data) {
@@ -84,6 +84,7 @@ public class Services {
 	network.view.setVisible(false);
 	network.view.userNum = Integer.parseInt(data);
 	network.view.statusInfo.setVisible(true);
+	network.view.programView.setVisible(true);
 	// if (network.view.payType == PacketInformation.PacketType.POINT) {
 	// if (network.view.payment.isPoint) {
 	// network.view.pointException();
