@@ -196,10 +196,13 @@ public class Network implements Runnable {
 	    services.responseFoodDatas(data);
 	    break;
 	case PacketInformation.PacketType.FOOD_TYPE:
-	    services.respinseFoodTypeDatas(data);
+	    services.responseFoodTypeDatas(data);
 	    break;
 	case PacketInformation.PacketType.IS_END:
 	    services.isEnd(data);
+	    break;
+	case PacketInformation.PacketType.IS_START:
+	    services.isStart(data);
 	    break;
 	case PacketInformation.PacketType.COM_PREPAID_INFO:
 	    break;

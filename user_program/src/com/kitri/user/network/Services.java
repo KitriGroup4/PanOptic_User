@@ -1,5 +1,7 @@
 package com.kitri.user.network;
 
+import java.util.ArrayList;
+
 import com.kitri.user.dto.FoodDto;
 import com.kitri.user.dto.FoodTypeDto;
 import com.kitri.user.main.Main;
@@ -24,7 +26,7 @@ public class Services {
 	}
     }
 
-    public void respinseFoodTypeDatas(String data) {
+    public void responseFoodTypeDatas(String data) {
 	FoodTypeDto dto = new FoodTypeDto();
 	dto.setField(data);
 	// Main.log(dto.toString());
@@ -41,6 +43,7 @@ public class Services {
 //	    type = network.view.statusInfo.order.foodTypes.get(i).getFoodTypeNum();
 //	    
 //	}
+	
 	switch(dto.getFoodTypeNum()){
 	case 0: // À½½Ä
 	    network.view.statusInfo.order.foods.add(dto);
@@ -61,6 +64,17 @@ public class Services {
 	    network.view.statusInfo.order.foodPane.setRowData();
 	    network.view.statusInfo.order.beveragePane.setRowData();
 	    network.view.statusInfo.order.snackPane.setRowData();
+	    break;
+	}
+    }
+    
+    public void isStart(String data){
+	switch(Integer.parseInt(data)){
+	case PacketInformation.PacketType.FOOD:
+	    network.view.statusInfo.order.foodTypes = new ArrayList<>();
+	    network.view.statusInfo.order.foods = new ArrayList<>();
+	    network.view.statusInfo.order.beverages = new ArrayList<>();
+	    network.view.statusInfo.order.snacks = new ArrayList<>();
 	    break;
 	}
     }
