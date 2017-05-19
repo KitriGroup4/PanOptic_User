@@ -44,7 +44,6 @@ public class OrderBeveragePane extends JPanel {
 	// rowDatas.addElement(temp);
 
 	table = new JTable();
-	table.addMouseListener(order.mListener);
 
     }
 
@@ -75,6 +74,7 @@ public class OrderBeveragePane extends JPanel {
 	table.getTableHeader().setReorderingAllowed(false);
 	table.getTableHeader().setResizingAllowed(false);
 
+	table.addMouseListener(order.mListener);
 	scrollPane = new JScrollPane(table);
 	add(scrollPane);
 
