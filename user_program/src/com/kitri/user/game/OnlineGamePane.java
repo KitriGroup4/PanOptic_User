@@ -18,10 +18,9 @@ public class OnlineGamePane extends JPanel {
 		int len = gameLabel.length;
 		for (int i = 0; i < len; i++) {
 			gameLabel[i] = new JLabel("on");
-			gameLabel[i].addMouseListener(uView.gmListener);
+			gameLabel[i
+			          ].addMouseListener(uView.gmListener);
 			add(gameLabel[i]);
 		}
-
 	}
-
 }
