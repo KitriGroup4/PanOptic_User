@@ -7,6 +7,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.kitri.user.dto.FoodDto;
+import com.kitri.user.dto.FoodTypeDto;
+
 import javax.swing.JInternalFrame;
 import java.awt.FlowLayout;
 import javax.swing.JSplitPane;
@@ -16,6 +20,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -40,9 +45,13 @@ public class Order extends JFrame {
     public OrderFoodPane FoodPane;
     public OrderListener listener;
     public CardLayout cl_OrderContentsPane = new CardLayout();
-    
-    
-//    public Vector foods;
+    public OrderMouseListener mListener;
+    public JButton orderCancelBtn;
+
+    public ArrayList<FoodTypeDto> foodTypes;
+    public ArrayList<FoodDto> foods;
+    public ArrayList<FoodDto> snacks;
+    public ArrayList<FoodDto> beverages;
 
     /**
      * Launch the application.
@@ -65,6 +74,7 @@ public class Order extends JFrame {
      */
     public Order() {
 	listener = new OrderListener(this);
+	mListener = new OrderMouseListener(this);
 
 	setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	setBounds(100, 100, 900, 600);
@@ -88,11 +98,9 @@ public class Order extends JFrame {
 	OrderContentsPane = new JPanel();
 
 	OrderContentsPane.setLayout(cl_OrderContentsPane);
-	
-	BeveragePane = new OrderBeveragePane();
-	SnackPane = new OrderSnackPane();
-	FoodPane = new OrderFoodPane();
-	
+	BeveragePane = new OrderBeveragePane(this);
+	SnackPane = new OrderSnackPane(this);
+	FoodPane = new OrderFoodPane(this);
 	OrderContentsPane.add(FoodPane, "1");
 	OrderContentsPane.add(BeveragePane, "2");
 	OrderContentsPane.add(SnackPane, "3");
@@ -111,8 +119,8 @@ public class Order extends JFrame {
 	emptyLabel = new JLabel("");
 	OrderMenuPane.add(emptyLabel);
 
-	emptyLabel1 = new JLabel("");
-	OrderMenuPane.add(emptyLabel1);
+	orderCancelBtn = new JButton("\uC8FC\uBB38\uCDE8\uC18C");
+	OrderMenuPane.add(orderCancelBtn);
 
 	totalPriceLabel = new JLabel("\uD569\uACC4:");
 	OrderMenuPane.add(totalPriceLabel);
@@ -125,6 +133,7 @@ public class Order extends JFrame {
 	orderBeveragebtn.addActionListener(listener);
 	orderSnackbtn.addActionListener(listener);
 	pointPaybtn.addActionListener(listener);
+	orderCancelBtn.addMouseListener(mListener);
     }
 
 }

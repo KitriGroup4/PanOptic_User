@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import com.kitri.user.main.Main;
 import com.kitri.user.network.PacketInformation;
 
-
 public class UserLoginListener implements ActionListener {
 
     UserLogin view;
@@ -23,8 +22,7 @@ public class UserLoginListener implements ActionListener {
 	if (o == view.joinBtn) {
 	    // logic.viewJoin();
 	    view.join.setVisible(true);
-	}
-	if (o == view.loginBtn) {
+	} else if (o == view.loginBtn) {
 	    login();
 	}
     }
