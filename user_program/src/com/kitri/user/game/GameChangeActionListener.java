@@ -3,9 +3,9 @@ package com.kitri.user.game;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GamechangActionListener implements ActionListener{
+public class GameChangeActionListener implements ActionListener{
 	UserProgramView game;
-	public GamechangActionListener(UserProgramView game) {
+	public GameChangeActionListener(UserProgramView game) {
 		this.game = game;
 	}
 	@Override
