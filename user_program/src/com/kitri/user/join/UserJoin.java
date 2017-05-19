@@ -11,21 +11,21 @@ import javax.swing.border.EtchedBorder;
 
 public class UserJoin extends JInternalFrame {
 
-    private JPanel BackgroundPane;
+    private JPanel backgroundPane;
     public JTextField joinTf;
     public JTextField joinName;
     public JButton joinConfirmBtn;
     public JButton joinCloseBtn;
-    private JPanel BaseInfoLabelPane;
+    private JPanel baseInfoLabelPane;
     private JLabel joinIdLabel;
     private JLabel joinNameLabel;
     private JLabel joinPwLabel;
     private JLabel joinPwCheckLabel;
     private JLabel joinBirthLabel;
-    private JPanel BaseInfoPane;
+    private JPanel baseInfoPane;
     public JTextField joinId;
     public JButton overCheckBtn;
-    private JPanel GenderCheckPane;
+    private JPanel genderCheckPane;
     private JLabel joinBaseLabel;
     public JRadioButton maleRadio;
     public JRadioButton femaleRadio;
@@ -72,78 +72,78 @@ public class UserJoin extends JInternalFrame {
 
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 500, 490);
-	BackgroundPane = new JPanel();
-	BackgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-	setContentPane(BackgroundPane);
-	BackgroundPane.setLayout(null);
+	backgroundPane = new JPanel();
+	backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	setContentPane(backgroundPane);
+	backgroundPane.setLayout(null);
 
 	joinTf = new JTextField();
 	joinTf.setEditable(false);
 	joinTf.setBounds(17, 25, 444, 50);
 	joinTf.setHorizontalAlignment(SwingConstants.CENTER);
 	joinTf.setText("\uD68C\uC6D0\uAC00\uC785");
-	BackgroundPane.add(joinTf);
+	backgroundPane.add(joinTf);
 	joinTf.setColumns(10);
 
 	joinConfirmBtn = new JButton("\uAC00\uC785\uC694\uCCAD");
 	joinConfirmBtn.setBounds(194, 380, 125, 34);
-	BackgroundPane.add(joinConfirmBtn);
+	backgroundPane.add(joinConfirmBtn);
 
 	joinCloseBtn = new JButton("\uB2EB\uAE30");
 	joinCloseBtn.setBounds(336, 380, 125, 34);
-	BackgroundPane.add(joinCloseBtn);
+	backgroundPane.add(joinCloseBtn);
 
-	BaseInfoLabelPane = new JPanel();
-	BaseInfoLabelPane.setBounds(17, 116, 91, 208);
-	BackgroundPane.add(BaseInfoLabelPane);
-	BaseInfoLabelPane.setLayout(new GridLayout(0, 1, 0, 0));
+	baseInfoLabelPane = new JPanel();
+	baseInfoLabelPane.setBounds(17, 116, 91, 208);
+	backgroundPane.add(baseInfoLabelPane);
+	baseInfoLabelPane.setLayout(new GridLayout(0, 1, 0, 0));
 
 	joinIdLabel = new JLabel("* \uC544\uC774\uB514");
 	joinIdLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	joinIdLabel.setHorizontalTextPosition(SwingConstants.LEFT);
-	BaseInfoLabelPane.add(joinIdLabel);
+	baseInfoLabelPane.add(joinIdLabel);
 
 	joinNameLabel = new JLabel("* \uC774\uB984");
 	joinNameLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	joinNameLabel.setHorizontalTextPosition(SwingConstants.LEFT);
-	BaseInfoLabelPane.add(joinNameLabel);
+	baseInfoLabelPane.add(joinNameLabel);
 
 	joinPwLabel = new JLabel("* \uBE44\uBC00\uBC88\uD638");
 	joinPwLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	joinPwLabel.setHorizontalTextPosition(SwingConstants.LEFT);
-	BaseInfoLabelPane.add(joinPwLabel);
+	baseInfoLabelPane.add(joinPwLabel);
 
 	joinPwCheckLabel = new JLabel("* \uBE44\uBC00\uBC88\uD638\uD655\uC778");
 	joinPwCheckLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	joinPwCheckLabel.setHorizontalTextPosition(SwingConstants.LEFT);
-	BaseInfoLabelPane.add(joinPwCheckLabel);
+	baseInfoLabelPane.add(joinPwCheckLabel);
 
 	joinBirthLabel = new JLabel("* \uC0DD\uB144\uC6D4\uC77C");
 	joinBirthLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	joinBirthLabel.setHorizontalTextPosition(SwingConstants.LEFT);
-	BaseInfoLabelPane.add(joinBirthLabel);
+	baseInfoLabelPane.add(joinBirthLabel);
 
-	BaseInfoPane = new JPanel();
-	BaseInfoPane.setBounds(114, 116, 234, 208);
-	BackgroundPane.add(BaseInfoPane);
-	BaseInfoPane.setLayout(new GridLayout(5, 0, 5, 5));
+	baseInfoPane = new JPanel();
+	baseInfoPane.setBounds(114, 116, 234, 208);
+	backgroundPane.add(baseInfoPane);
+	baseInfoPane.setLayout(new GridLayout(5, 0, 5, 5));
 
 	joinId = new JTextField();
-	BaseInfoPane.add(joinId);
+	baseInfoPane.add(joinId);
 	joinId.setColumns(10);
 
 	joinName = new JTextField();
-	BaseInfoPane.add(joinName);
+	baseInfoPane.add(joinName);
 	joinName.setColumns(10);
 
 	joinPw = new JPasswordField();
-	BaseInfoPane.add(joinPw);
+	baseInfoPane.add(joinPw);
 
 	joinPwCheck = new JPasswordField();
-	BaseInfoPane.add(joinPwCheck);
+	baseInfoPane.add(joinPwCheck);
 
 	yymmdd = new JPanel();
-	BaseInfoPane.add(yymmdd);
+	baseInfoPane.add(yymmdd);
 	yymmdd.setLayout(new GridLayout(1, 3, 5, 5));
 
 	yy = new JComboBox();
@@ -164,12 +164,12 @@ public class UserJoin extends JInternalFrame {
 	    public void actionPerformed(ActionEvent e) {
 	    }
 	});
-	BackgroundPane.add(overCheckBtn);
+	backgroundPane.add(overCheckBtn);
 
-	GenderCheckPane = new JPanel();
+	genderCheckPane = new JPanel();
 	genderGroup = new ButtonGroup();
-	GenderCheckPane.setBounds(356, 279, 105, 43);
-	BackgroundPane.add(GenderCheckPane);
+	genderCheckPane.setBounds(356, 279, 105, 43);
+	backgroundPane.add(genderCheckPane);
 
 	maleRadio = new JRadioButton("\uB0A8", true);
 
@@ -178,17 +178,17 @@ public class UserJoin extends JInternalFrame {
 	genderGroup.add(maleRadio);
 	genderGroup.add(femaleRadio);
 
-	GenderCheckPane.add(maleRadio);
-	GenderCheckPane.add(femaleRadio);
+	genderCheckPane.add(maleRadio);
+	genderCheckPane.add(femaleRadio);
 
 	joinBaseLabel = new JLabel("\uAE30\uBCF8\uC815\uBCF4");
 	joinBaseLabel.setBounds(17, 90, 91, 21);
 	joinBaseLabel.setHorizontalAlignment(SwingConstants.LEFT);
-	BackgroundPane.add(joinBaseLabel);
+	backgroundPane.add(joinBaseLabel);
 
 	SubInfoLabelPanel2 = new JPanel();
 	SubInfoLabelPanel2.setBounds(243, 330, 218, 35);
-	BackgroundPane.add(SubInfoLabelPanel2);
+	backgroundPane.add(SubInfoLabelPanel2);
 	SubInfoLabelPanel2.setLayout(new BorderLayout(10, 0));
 
 	JLabel hpL = new JLabel("* \uD578\uB4DC\uD3F0");
@@ -200,7 +200,7 @@ public class UserJoin extends JInternalFrame {
 
 	SubInfoLabelPanel = new JPanel();
 	SubInfoLabelPanel.setBounds(17, 330, 218, 35);
-	BackgroundPane.add(SubInfoLabelPanel);
+	backgroundPane.add(SubInfoLabelPanel);
 	SubInfoLabelPanel.setLayout(new BorderLayout(10, 0));
 
 	eMailL = new JLabel("* E-mail");

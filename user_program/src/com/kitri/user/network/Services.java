@@ -58,9 +58,9 @@ public class Services {
     public void isEnd(String data){
 	switch(Integer.parseInt(data)){
 	case PacketInformation.PacketType.FOOD:
-	    network.view.statusInfo.order.FoodPane.setRowData();
-	    network.view.statusInfo.order.BeveragePane.setRowData();
-	    network.view.statusInfo.order.SnackPane.setRowData();
+	    network.view.statusInfo.order.foodPane.setRowData();
+	    network.view.statusInfo.order.beveragePane.setRowData();
+	    network.view.statusInfo.order.snackPane.setRowData();
 	    break;
 	}
     }

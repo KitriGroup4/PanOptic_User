@@ -15,13 +15,13 @@ public class OrderListener implements ActionListener {
 	int sum = 0;
 	Object o = e.getSource();
 	if (o == order.orderFoodbtn) {
-	    order.cl_OrderContentsPane.show(order.OrderContentsPane, "1");
+	    order.clOrderContentsPane.show(order.orderContentsPane, "1");
 	}
 	if (o == order.orderSnackbtn) {
-	    order.cl_OrderContentsPane.show(order.OrderContentsPane, "3");
+	    order.clOrderContentsPane.show(order.orderContentsPane, "3");
 	}
 	if (o == order.orderBeveragebtn) {
-	    order.cl_OrderContentsPane.show(order.OrderContentsPane, "2");
+	    order.clOrderContentsPane.show(order.orderContentsPane, "2");
 	}
 	if (o == order.pointPaybtn) {
 

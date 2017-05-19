@@ -12,25 +12,25 @@ public class gamechangActionListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object o = e.getSource();
 		if(o == game.enternetBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "1");
+			game.clGameContentsPane.show(game.gameContentsPane, "1");
 		}
 		if(o == game.issueGameBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "2");
+			game.clGameContentsPane.show(game.gameContentsPane, "2");
 		}
 		if(o == game.onlineGameBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "3");
+			game.clGameContentsPane.show(game.gameContentsPane, "3");
 		}
 		if(o == game.actionGameBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "4");
+			game.clGameContentsPane.show(game.gameContentsPane, "4");
 		}
 		if(o == game.cdGameBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "5");
+			game.clGameContentsPane.show(game.gameContentsPane, "5");
 		}
 		if(o == game.sportsGameBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "6");
+			game.clGameContentsPane.show(game.gameContentsPane, "6");
 		}
 		if(o == game.ectBtn){
-			game.cl_GameContentsPane.show(game.GameContentsPane, "7");
+			game.clGameContentsPane.show(game.gameContentsPane, "7");
 		}
 		
 	}

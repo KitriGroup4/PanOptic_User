@@ -20,13 +20,13 @@ import java.awt.FlowLayout;
 
 public class Messenger extends JFrame {
 	public JTextField msgTf;
-	private JPanel BackgroundPane;
+	private JPanel backgroundPane;
 	private JLabel msgTitleLabel;
-	private JPanel MsgTitlePane;
-	private JScrollPane MsgTextAreaPane;
+	private JPanel msgTitlePane;
+	private JScrollPane msgTextAreaPane;
 	public JTextArea msgtextArea;
-	private JPanel MessageTfPane;
-	private JPanel MsgSendPane;
+	private JPanel messageTfPane;
+	private JPanel msgSendPane;
 	public JButton msgBtn;
 	public MessengerListener listener;
 
@@ -53,47 +53,47 @@ public class Messenger extends JFrame {
 		listener = new MessengerListener(this);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 427, 341);
-		BackgroundPane = new JPanel();
-		BackgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(BackgroundPane);
-		BackgroundPane.setLayout(null);
+		backgroundPane = new JPanel();
+		backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(backgroundPane);
+		backgroundPane.setLayout(null);
 		
-		MsgTitlePane = new JPanel();
-		FlowLayout fl_MsgTitlePane = (FlowLayout) MsgTitlePane.getLayout();
+		msgTitlePane = new JPanel();
+		FlowLayout fl_MsgTitlePane = (FlowLayout) msgTitlePane.getLayout();
 		fl_MsgTitlePane.setAlignment(FlowLayout.LEFT);
-		MsgTitlePane.setBounds(12, 10, 175, 34);
-		BackgroundPane.add(MsgTitlePane);
+		msgTitlePane.setBounds(12, 10, 175, 34);
+		backgroundPane.add(msgTitlePane);
 		
 		msgTitleLabel = new JLabel("[ \uB300\uD654\uCC3D ]");
 		msgTitleLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		msgTitleLabel.setFont(new Font("³ª´®¹Ù¸¥Ææ", Font.BOLD, 23));
-		MsgTitlePane.add(msgTitleLabel);
+		msgTitlePane.add(msgTitleLabel);
 		
-		MsgTextAreaPane = new JScrollPane();
-		MsgTextAreaPane.setBounds(12, 54, 387, 189);
-		BackgroundPane.add(MsgTextAreaPane);
+		msgTextAreaPane = new JScrollPane();
+		msgTextAreaPane.setBounds(12, 54, 387, 189);
+		backgroundPane.add(msgTextAreaPane);
 		
 		msgtextArea = new JTextArea();
 		msgtextArea.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		MsgTextAreaPane.setViewportView(msgtextArea);
+		msgTextAreaPane.setViewportView(msgtextArea);
 		
-		MessageTfPane = new JPanel();
-		MessageTfPane.setBounds(12, 253, 276, 39);
-		BackgroundPane.add(MessageTfPane);
-		MessageTfPane.setLayout(null);
+		messageTfPane = new JPanel();
+		messageTfPane.setBounds(12, 253, 276, 39);
+		backgroundPane.add(messageTfPane);
+		messageTfPane.setLayout(null);
 		
 		msgTf = new JTextField();
 		msgTf.setBounds(0, 10, 276, 21);
-		MessageTfPane.add(msgTf);
+		messageTfPane.add(msgTf);
 		msgTf.setColumns(10);
 		
-		MsgSendPane = new JPanel();
-		MsgSendPane.setBounds(289, 253, 122, 39);
-		BackgroundPane.add(MsgSendPane);
+		msgSendPane = new JPanel();
+		msgSendPane.setBounds(289, 253, 122, 39);
+		backgroundPane.add(msgSendPane);
 		
 		msgBtn = new JButton("      \uC804\uC1A1      ");
 		msgBtn.setFont(new Font("³ª´®¹Ù¸¥Ææ", Font.PLAIN, 12));
-		MsgSendPane.add(msgBtn);
+		msgSendPane.add(msgBtn);
 		
 		setVisible(false);
 		msgBtn.addActionListener(listener);

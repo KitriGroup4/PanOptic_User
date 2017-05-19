@@ -19,26 +19,26 @@ public class OrderMouseListener extends MouseAdapter {
 		super.mouseClicked(e);
 
 		Object o = e.getSource();
-		if (o == order.BeveragePane.table) {
-			if (order.BeveragePane.table.getSelectedRow() >= 0) {
-				selectedRow = order.BeveragePane.table.getSelectedRow();
-				sum += (int) order.BeveragePane.table.getValueAt(selectedRow, 2);
+		if (o == order.beveragePane.table) {
+			if (order.beveragePane.table.getSelectedRow() >= 0) {
+				selectedRow = order.beveragePane.table.getSelectedRow();
+				sum += (int) order.beveragePane.table.getValueAt(selectedRow, 2);
 				sum1 = String.valueOf(sum);
 				order.totalPriceLabel.setText("합계:" + sum1);
 				
 			}
-		} else if (o == order.FoodPane.table) {
-			if (order.FoodPane.table.getSelectedRow() >= 0) {
-				selectedRow = order.FoodPane.table.getSelectedRow();
-				sum += (int) order.FoodPane.table.getValueAt(selectedRow, 2);
+		} else if (o == order.foodPane.table) {
+			if (order.foodPane.table.getSelectedRow() >= 0) {
+				selectedRow = order.foodPane.table.getSelectedRow();
+				sum += (int) order.foodPane.table.getValueAt(selectedRow, 2);
 				sum1 = String.valueOf(sum);
 				order.totalPriceLabel.setText("합계:" + sum1);
 			}
 
-		} else if (o == order.SnackPane.table) {
-			if (order.SnackPane.table.getSelectedRow() >= 0) {
-				selectedRow = order.SnackPane.table.getSelectedRow();
-				sum += (int) order.SnackPane.table.getValueAt(selectedRow, 2);
+		} else if (o == order.snackPane.table) {
+			if (order.snackPane.table.getSelectedRow() >= 0) {
+				selectedRow = order.snackPane.table.getSelectedRow();
+				sum += (int) order.snackPane.table.getValueAt(selectedRow, 2);
 				sum1 = String.valueOf(sum);
 				order.totalPriceLabel.setText("합계:" + sum1);
 			}

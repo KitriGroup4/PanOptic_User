@@ -29,15 +29,15 @@ import javax.swing.JFormattedTextField;
 
 public class UserProgramView extends JFrame {
 	public  GameViewMouseListener gmListener;
-	private JPanel BackgroundPane;
-	private JPanel EmptyPane;
+	private JPanel backgroundPane;
+	private JPanel emptyPane;
 	private JLabel emptyTitleLabel;
-	public JPanel GameListPane;
-	public JPanel GameContentsPane;
+	public JPanel gameListPane;
+	public JPanel gameContentsPane;
 	public JButton enternetBtn;
 	public JButton actionGameBtn;
 	public JButton issueGameBtn;
-	public CardLayout cl_GameContentsPane = new CardLayout();
+	public CardLayout clGameContentsPane = new CardLayout();
 	public JButton onlineGameBtn;
 	public InternetPane gameEnternetPane;
 	public HotGamePane hotGamePane;
@@ -81,72 +81,72 @@ public class UserProgramView extends JFrame {
 		gListener = new gamechangActionListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 600);
-		BackgroundPane = new JPanel();
-		BackgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(BackgroundPane);
-		BackgroundPane.setLayout(new BorderLayout(0, 0));
+		backgroundPane = new JPanel();
+		backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(backgroundPane);
+		backgroundPane.setLayout(new BorderLayout(0, 0));
 		
-		EmptyPane = new JPanel();
-		BackgroundPane.add(EmptyPane, BorderLayout.NORTH);
-		EmptyPane.setLayout(new BorderLayout(100, 100));
+		emptyPane = new JPanel();
+		backgroundPane.add(emptyPane, BorderLayout.NORTH);
+		emptyPane.setLayout(new BorderLayout(100, 100));
 		
 		emptyTitleLabel = new JLabel("              ");
 		emptyTitleLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 31));
-		EmptyPane.add(emptyTitleLabel);
+		emptyPane.add(emptyTitleLabel);
 		
-		GameListPane = new JPanel();
-		BackgroundPane.add(GameListPane, BorderLayout.WEST);
-		GameListPane.setLayout(new GridLayout(7, 1, 0, 0));
+		gameListPane = new JPanel();
+		backgroundPane.add(gameListPane, BorderLayout.WEST);
+		gameListPane.setLayout(new GridLayout(7, 1, 0, 0));
 		
-		GameContentsPane = new JPanel();
+		gameContentsPane = new JPanel();
 		
-		GameContentsPane.setLayout(cl_GameContentsPane);
+		gameContentsPane.setLayout(clGameContentsPane);
 		hotGamePane = new HotGamePane(this);
 		onlineGamePane= new OnlineGamePane(this);
 		gameEnternetPane = new InternetPane(this);
 		
 		
-		GameContentsPane.add(gameEnternetPane, "1");
-		GameContentsPane.add(hotGamePane,"2");
-		GameContentsPane.add(onlineGamePane,"3");
+		gameContentsPane.add(gameEnternetPane, "1");
+		gameContentsPane.add(hotGamePane,"2");
+		gameContentsPane.add(onlineGamePane,"3");
 		
-		BackgroundPane.add(GameContentsPane, BorderLayout.CENTER);
+		backgroundPane.add(gameContentsPane, BorderLayout.CENTER);
 		
 		actionGamePane = new ActionGamePane(this);
-		GameContentsPane.add(actionGamePane, "4");
+		gameContentsPane.add(actionGamePane, "4");
 		
 		cdGamePane = new CdGamePane(this);
-		GameContentsPane.add(cdGamePane, "5");
+		gameContentsPane.add(cdGamePane, "5");
 		
 		sportsGamePane = new SportsGamePane(this);
-		GameContentsPane.add(sportsGamePane, "6");
+		gameContentsPane.add(sportsGamePane, "6");
 		
 		ectGamePane = new EctGamePane(this);
-		GameContentsPane.add(ectGamePane, "7");
+		gameContentsPane.add(ectGamePane, "7");
 		
 		
 
 		enternetBtn = new JButton("\uC778\uD130\uB137\uBE0C\uB77C\uC6B0\uC800");
-		GameListPane.add(enternetBtn);
+		gameListPane.add(enternetBtn);
 		
 
 		issueGameBtn = new JButton("\uC778\uAE30\uAC8C\uC784");
-		GameListPane.add(issueGameBtn);
+		gameListPane.add(issueGameBtn);
 		
 		onlineGameBtn = new JButton("\uC628\uB77C\uC778\uAC8C\uC784");
-		GameListPane.add(onlineGameBtn);
+		gameListPane.add(onlineGameBtn);
 		
 		actionGameBtn = new JButton("\uC561\uC158&FPS");
-		GameListPane.add(actionGameBtn);
+		gameListPane.add(actionGameBtn);
 		
 		cdGameBtn = new JButton("CD\uAC8C\uC784");
-		GameListPane.add(cdGameBtn);
+		gameListPane.add(cdGameBtn);
 		
 		sportsGameBtn = new JButton("\uC2A4\uD3EC\uCE20&\uB808\uC774\uC2F1");
-		GameListPane.add(sportsGameBtn);
+		gameListPane.add(sportsGameBtn);
 		
 		ectBtn = new JButton("\uAE30\uD0C0");
-		GameListPane.add(ectBtn);
+		gameListPane.add(ectBtn);
 		
 		setVisible(true);
 		
