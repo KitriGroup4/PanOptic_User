@@ -55,6 +55,7 @@ public class Services {
 	    network.view.statusInfo.order.beverages.add(dto);
 	    break;
 	    default:
+		
 	}
     }
     
