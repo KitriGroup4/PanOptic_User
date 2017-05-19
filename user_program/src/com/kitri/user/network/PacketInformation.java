@@ -44,6 +44,7 @@ public class PacketInformation {
 	public static final byte FOOD = 10;
 	public static final byte FOOD_TYPE = 11;
 	public static final byte IS_END = 12;
+	public static final byte IS_START = 13;
     }
 
     public static class ComPrepaidInfo {

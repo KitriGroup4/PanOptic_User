@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import com.kitri.user.dto.FoodDto;
+import com.kitri.user.main.Main;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -70,6 +71,7 @@ public class OrderFoodPane extends JPanel {
 
     public void setRowData() {
 	int size = order.foods.size();
+	Main.log("setRowData : " + size);
 	rowDatas = new Vector<>();
 	Vector temp;
 	FoodDto foodTemp;

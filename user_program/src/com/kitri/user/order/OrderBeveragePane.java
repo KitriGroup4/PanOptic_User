@@ -8,6 +8,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.kitri.user.dto.FoodDto;
+import com.kitri.user.main.Main;
 
 public class OrderBeveragePane extends JPanel {
     // private String beverageName[] ={"아메리카노","카푸치노","카페라떼","카라멜마끼아또","까페모카",
@@ -48,12 +49,13 @@ public class OrderBeveragePane extends JPanel {
     }
 
     public void setRowData() {
-	int size = order.foods.size();
+	int size = order.beverages.size();
+	Main.log("setRowData : " + size);
 	rowDatas = new Vector<>();
 	Vector temp;
 	FoodDto foodTemp;
 	for (int i = 0; i < size; i++) {
-	    foodTemp = order.foods.get(i);
+	    foodTemp = order.beverages.get(i);
 	    temp = new Vector<>();
 	    temp.add(foodTemp.getFoodNum());
 	    temp.add(foodTemp.getFoodName());
