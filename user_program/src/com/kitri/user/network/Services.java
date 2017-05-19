@@ -84,6 +84,7 @@ public class Services {
 	network.view.setVisible(false);
 	network.view.userNum = Integer.parseInt(data);
 	network.view.statusInfo.setVisible(true);
+	network.view.programView.setVisible(true);
 	// if (network.view.payType == PacketInformation.PacketType.POINT) {
 	// if (network.view.payment.isPoint) {
 	// network.view.pointException();

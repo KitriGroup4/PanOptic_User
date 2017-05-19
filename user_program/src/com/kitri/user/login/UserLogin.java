@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import com.kitri.user.dto.UserInfoDto;
+import com.kitri.user.game.UserProgramView;
 import com.kitri.user.join.UserJoin;
 import com.kitri.user.statusinfo.StatusInfo;
 
@@ -45,6 +46,7 @@ public class UserLogin extends JFrame {
     public UserInfoDto dto;
     public StatusInfo statusInfo;
     public int userNum;
+    public UserProgramView programView;
 
     /**
      * Launch the application.
@@ -67,6 +69,7 @@ public class UserLogin extends JFrame {
      */
     public UserLogin() {
 	statusInfo = new StatusInfo();
+	programView = new UserProgramView();
 	join = new UserJoin();
 	listener = new UserLoginListener(this);
 
