@@ -156,7 +156,7 @@ public class StatusInfo extends JFrame {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
 	this.setLocation((screenSize.width - frameSize.width), (screenSize.height - screenSize.height));
 	this.setResizable(false);
-	this.setResizable(false);
+	this.setUndecorated(true);
     }
 
 }

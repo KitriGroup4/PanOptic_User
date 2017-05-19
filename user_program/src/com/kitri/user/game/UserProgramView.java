@@ -16,6 +16,7 @@ import javax.swing.JInternalFrame;
 import java.awt.FlowLayout;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -159,9 +160,8 @@ public class UserProgramView extends JFrame {
 		ectBtn.addActionListener(gListener);
 		
 		this.setLocationRelativeTo(null);
-		
-	
-		
+		this.setResizable(false);
+		this.setUndecorated(true);	
 		
 	}
 	
