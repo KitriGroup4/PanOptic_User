@@ -45,7 +45,7 @@ public class UserProgramView extends JFrame {
 	public JButton cdGameBtn;
 	public JButton sportsGameBtn;
 	public JButton ectBtn;
-	public GamechangActionListener gListener;
+	public GameChangeActionListener gListener;
 	public ActionGamePane actionGamePane;
 	public CdGamePane cdGamePane;
 	public SportsGamePane sportsGamePane;
@@ -78,7 +78,7 @@ public class UserProgramView extends JFrame {
 	 */
 	public UserProgramView() {
 		gmListener = new GameViewMouseListener(this);
-		gListener = new GamechangActionListener(this);
+		gListener = new GameChangeActionListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 600);
 		backgroundPane = new JPanel();
