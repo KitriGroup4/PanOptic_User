@@ -46,7 +46,6 @@ public class OrderSnackPane extends JPanel {
 //		rowDatas.addElement(temp);
 		
 		table = new JTable();
-		table.addMouseListener(order.mListener);
 	}
 
 	public void setRowData() {
@@ -75,6 +74,7 @@ public class OrderSnackPane extends JPanel {
 		table = new JTable(model);
 		table.getTableHeader().setReorderingAllowed(false);
 		table.getTableHeader().setResizingAllowed(false);
+		table.addMouseListener(order.mListener);
 
 		scrollPane = new JScrollPane(table);
 		add(scrollPane);
