@@ -28,7 +28,7 @@ public class Services {
 	FoodTypeDto dto = new FoodTypeDto();
 	dto.setField(data);
 	// Main.log(dto.toString());
-	network.view.statusInfo.order.foodTypes.add(dto);
+		network.view.statusInfo.order.foodTypes.add(dto);
     }
 
     public void responseFoodDatas(String data) {
