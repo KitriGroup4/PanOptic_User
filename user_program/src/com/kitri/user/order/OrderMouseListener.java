@@ -38,6 +38,8 @@ public class OrderMouseListener extends MouseAdapter {
 	Object o = e.getSource();
 	if (o == order.beveragePane.table) {
 	    if (order.beveragePane.table.getSelectedRow() >= 0) {
+
+		addOrderInfo((int) order.foodPane.table.getValueAt(selectedRow, NUM_COL), order.beverages);
 		selectMenu(order.beveragePane.table);
 
 	    }
@@ -45,7 +47,7 @@ public class OrderMouseListener extends MouseAdapter {
 	    if (order.foodPane.table.getSelectedRow() >= 0) {
 //		selectedRow = order.foodPane.table.getSelectedRow();
 //		sum += (int) order.foodPane.table.getValueAt(selectedRow, PRICE_COL);
-//		addOrderInfo((int) order.foodPane.table.getValueAt(selectedRow, NUM_COL), order.foods);
+		addOrderInfo((int) order.foodPane.table.getValueAt(selectedRow, NUM_COL), order.foods);
 //
 //		order.totalPriceLabel.setText("합계 : " + sum);
 		selectMenu(order.foodPane.table);
@@ -55,7 +57,7 @@ public class OrderMouseListener extends MouseAdapter {
 	    if (order.snackPane.table.getSelectedRow() >= 0) {
 //		selectedRow = order.snackPane.table.getSelectedRow();
 //		sum += (int) order.snackPane.table.getValueAt(selectedRow, PRICE_COL);
-//		addOrderInfo((int) order.snackPane.table.getValueAt(selectedRow, NUM_COL), order.snacks);
+		addOrderInfo((int) order.snackPane.table.getValueAt(selectedRow, NUM_COL), order.snacks);
 //
 //		order.totalPriceLabel.setText("합계  : " + sum);
 		selectMenu(order.snackPane.table);
