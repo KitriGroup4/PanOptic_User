@@ -1,5 +1,6 @@
 package com.kitri.user.order;
 
+import java.awt.Dimension;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -27,7 +28,7 @@ public class OrderBeveragePane extends JPanel {
      */
     public OrderBeveragePane(Order order) {
 	this.order = order;
-	
+
 	// Vector temp = new Vector();
 	// temp.add("img");
 	// temp.add("아메리카노");
@@ -53,6 +54,7 @@ public class OrderBeveragePane extends JPanel {
 	    foodTemp = order.beverages.get(i);
 	    temp = new Vector<>();
 	    temp.add(foodTemp.getFoodNum());
+	    temp.add("tmp.jpg");
 	    temp.add(foodTemp.getFoodName());
 	    temp.add(foodTemp.getFoodPrice());
 	    rowDatas.addElement(temp);
@@ -72,6 +74,9 @@ public class OrderBeveragePane extends JPanel {
 
 	table.addMouseListener(order.mListener);
 	scrollPane = new JScrollPane(table);
+
+	Dimension d = table.getPreferredSize();
+	scrollPane.setPreferredSize(new Dimension(630, 500));
 	add(scrollPane);
 
     }

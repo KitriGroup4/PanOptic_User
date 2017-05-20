@@ -22,7 +22,7 @@ public class UserLoginListener implements ActionListener {
 	if (o == view.joinBtn) {
 	    // logic.viewJoin();
 	    view.join.setVisible(true);
-	} else if (o == view.loginBtn) {
+	} else if (o == view.loginBtn || o == view.pwTf) {
 	    login();
 	}
     }
@@ -31,9 +31,13 @@ public class UserLoginListener implements ActionListener {
 	String id = view.idTf.getText().trim();
 	String pw = view.pwTf.getText().trim();
 
-	// 유효성 검사
+	if (id.isEmpty() || pw.isEmpty()) {
+	    view.fieldEmpty();
+	} else {
+	    Main.network.sendPacket(PacketInformation.Operation.LOGIN, PacketInformation.PacketType.ID_PW,
+		    id + "," + pw);
 
-	Main.network.sendPacket(PacketInformation.Operation.LOGIN, PacketInformation.PacketType.ID_PW, id + "," + pw);
+	}
 
     }
 }

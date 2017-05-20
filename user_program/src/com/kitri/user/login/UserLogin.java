@@ -182,7 +182,7 @@ public class UserLogin extends JFrame {
 	mainComNum.setFont(new Font("굴림", Font.PLAIN, 20));
 	mainComNum.setEditable(false);
 	mainComNum.setHorizontalAlignment(SwingConstants.CENTER);
-	mainComNum.setText("PC1");
+//	mainComNum.setText("PC1");
 	userMainComPane.add(mainComNum);
 	mainComNum.setColumns(10);
 
@@ -193,6 +193,17 @@ public class UserLogin extends JFrame {
 
 	joinBtn.addActionListener(listener);
 	loginBtn.addActionListener(listener);
+	pwTf.addActionListener(listener);
+    }
+
+    public void loginFail() {
+	JOptionPane.showMessageDialog(this, "아이디 혹은 비밀번호를 확인해주세요.", "로그인 실패", JOptionPane.WARNING_MESSAGE);
+
+    }
+
+    public void fieldEmpty() {
+	JOptionPane.showMessageDialog(this, "아이디 비밀번호를 입력해주세요.", "공백", JOptionPane.WARNING_MESSAGE);
+
     }
 
     public void joinSuccess() {

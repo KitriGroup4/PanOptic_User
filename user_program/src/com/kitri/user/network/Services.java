@@ -30,21 +30,14 @@ public class Services {
 	FoodTypeDto dto = new FoodTypeDto();
 	dto.setField(data);
 	// Main.log(dto.toString());
-		network.view.statusInfo.order.foodTypes.add(dto);
+	network.view.statusInfo.order.foodTypes.add(dto);
     }
 
     public void responseFoodDatas(String data) {
 	FoodDto dto = new FoodDto();
 	dto.setField(data);
-	// Main.log(dto.toString());
-//	int size = network.view.statusInfo.order.foodTypes.size();
-//	int type;
-//	for (int i = 0; i < size; i++) {
-//	    type = network.view.statusInfo.order.foodTypes.get(i).getFoodTypeNum();
-//	    
-//	}
-	
-	switch(dto.getFoodTypeNum()){
+
+	switch (dto.getFoodTypeNum()) {
 	case 0: // 음식
 	    network.view.statusInfo.order.foods.add(dto);
 	    break;
@@ -54,13 +47,21 @@ public class Services {
 	case 2: // 음료
 	    network.view.statusInfo.order.beverages.add(dto);
 	    break;
-	    default:
-		
+	default:
+
 	}
     }
-    
-    public void isEnd(String data){
-	switch(Integer.parseInt(data)){
+
+    public void buyFoodResult(String data) {
+	if (Integer.parseInt(data) == PacketInformation.PacketType.IS_OK) {
+	   network.view.statusInfo.order.buyFoodSuccess();
+	} else {
+	   network.view.statusInfo.order.buyFoodFail();
+	}
+    }
+
+    public void isEnd(String data) {
+	switch (Integer.parseInt(data)) {
 	case PacketInformation.PacketType.FOOD:
 	    network.view.statusInfo.order.foodPane.setRowData();
 	    network.view.statusInfo.order.beveragePane.setRowData();
@@ -68,9 +69,9 @@ public class Services {
 	    break;
 	}
     }
-    
-    public void isStart(String data){
-	switch(Integer.parseInt(data)){
+
+    public void isStart(String data) {
+	switch (Integer.parseInt(data)) {
 	case PacketInformation.PacketType.FOOD:
 	    network.view.statusInfo.order.foodTypes = new ArrayList<>();
 	    network.view.statusInfo.order.foods = new ArrayList<>();

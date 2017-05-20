@@ -1,31 +1,17 @@
 package com.kitri.user.order;
 
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import com.kitri.user.dto.FoodDto;
 import com.kitri.user.dto.FoodTypeDto;
 
-import javax.swing.JInternalFrame;
-import java.awt.FlowLayout;
-import javax.swing.JSplitPane;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
-
-import javax.swing.JButton;
-import javax.swing.JScrollPane;
-import javax.swing.JFormattedTextField;
 
 public class Order extends JFrame {
 
@@ -48,6 +34,9 @@ public class Order extends JFrame {
     public CardLayout clOrderContentsPane = new CardLayout();
     public OrderMouseListener mListener;
     public JButton orderCancelBtn;
+    public JPanel orderedListPane;
+    public JTextField orderedListTitle;
+    public JTextArea orderedList;
 
     public ArrayList<FoodTypeDto> foodTypes;
     public ArrayList<FoodDto> foods;
@@ -62,8 +51,8 @@ public class Order extends JFrame {
 	EventQueue.invokeLater(new Runnable() {
 	    public void run() {
 		try {
-		    // adf frame = new adf();
-		    // frame.setVisible(true);
+		    Order frame = new Order();
+		    frame.setVisible(true);
 		} catch (Exception e) {
 		    e.printStackTrace();
 		}
@@ -77,12 +66,11 @@ public class Order extends JFrame {
     public Order() {
 	listener = new OrderListener(this);
 	mListener = new OrderMouseListener(this);
-	
 
+	col.add("번호");
 	col.add("사진");
 	col.add("음료메뉴");
 	col.add("가격");
-
 
 	setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	setBounds(100, 100, 900, 600);
@@ -136,12 +124,70 @@ public class Order extends JFrame {
 	pointPaybtn = new JButton("\uD3EC\uC778\uD2B8\uACB0\uC81C");
 	orderMenuPane.add(pointPaybtn);
 
+	orderedListPane = new JPanel();
+	backgroundPane.add(orderedListPane, BorderLayout.EAST);
+	orderedListPane.setLayout(new BorderLayout(0, 0));
+
+	orderedListTitle = new JTextField();
+	orderedListTitle.setEditable(false);
+	orderedListTitle.setFont(new Font("굴림", Font.BOLD, 15));
+	orderedListTitle.setHorizontalAlignment(SwingConstants.CENTER);
+	orderedListTitle.setText("\uC8FC\uBB38\uB0B4\uC5ED");
+	orderedListPane.add(orderedListTitle, BorderLayout.NORTH);
+	orderedListTitle.setColumns(10);
+
+	orderedList = new JTextArea();
+	orderedList.setEditable(false);
+	orderedListPane.add(orderedList);
+
 	setVisible(false);
 	orderFoodbtn.addActionListener(listener);
 	orderBeveragebtn.addActionListener(listener);
 	orderSnackbtn.addActionListener(listener);
-	pointPaybtn.addActionListener(listener);
+	pointPaybtn.addMouseListener(mListener);
 	orderCancelBtn.addMouseListener(mListener);
     }
+
+    public void buyFoodSuccess() {
+	JOptionPane.showMessageDialog(this, "음식 구매에 성공했습니다.", "성공", JOptionPane.WARNING_MESSAGE);
+
+    }
+
+    public void buyFoodFail() {
+	JOptionPane.showMessageDialog(this, "음식 구매에 실패했습니다.", "실패", JOptionPane.WARNING_MESSAGE);
+
+    }
+    // public void setColData(Vector vec, JTable table, ArrayList list, JPanel
+    // p, JScrollPane scroll) {
+    // int size = vec.size();
+    //
+    // vec = new Vector<>();
+    // Vector temp;
+    // FoodDto foodTemp;
+    // for (int i = 0; i < size; i++) {
+    // foodTemp = (FoodDto) list.get(i);
+    // temp = new Vector<>();
+    // temp.add(foodTemp.getFoodNum());
+    // temp.add("tmp.jpg");
+    // temp.add(foodTemp.getFoodName());
+    // temp.add(foodTemp.getFoodPrice());
+    // vec.addElement(temp);
+    // }
+    //
+    // DefaultTableModel model = new DefaultTableModel(vec, col) {
+    // @Override
+    // public boolean isCellEditable(int row, int column) {
+    // return false;
+    // }
+    // };
+    //
+    // table = new JTable(model);
+    // table.getTableHeader().setReorderingAllowed(false);
+    // table.getTableHeader().setResizingAllowed(false);
+    //
+    // table.addMouseListener(mListener);
+    // scroll = new JScrollPane(table);
+    // p.add(scroll);
+    // }
 
 }

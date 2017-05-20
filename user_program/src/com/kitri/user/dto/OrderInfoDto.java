@@ -2,6 +2,7 @@ package com.kitri.user.dto;
 
 import java.util.StringTokenizer;
 
+
 public class OrderInfoDto {
     private int orderNum;
     private int userNum;
@@ -84,6 +85,8 @@ public class OrderInfoDto {
 	    case 3:
 		orderMoney = Integer.parseInt(temp);
 		break;
+	    case 4:
+		orderCount = Integer.parseInt(temp);
 	    case 5:
 		orderTime = temp;
 		break;
@@ -115,6 +118,8 @@ public class OrderInfoDto {
 	    case 3:
 		orderMoney = Integer.parseInt(temp);
 		break;
+	    case 4:
+		orderCount = Integer.parseInt(temp);
 	    case 5:
 		orderTime = temp;
 		break;

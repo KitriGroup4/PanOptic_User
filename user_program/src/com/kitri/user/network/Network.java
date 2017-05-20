@@ -25,6 +25,7 @@ public class Network implements Runnable {
 
     public Services services;
     public UserLogin view;
+    public int comNum;
 
     public Network() {
 	view = new UserLogin();
@@ -45,7 +46,7 @@ public class Network implements Runnable {
 	    socket.connect(new InetSocketAddress(IP, PORT), SOCKET_TIMEOUT);
 	    buffReader = new BufferedReader(new InputStreamReader(socket.getInputStream(), "EUC-KR"));
 	    writer = new PrintWriter(socket.getOutputStream(), true);
-
+	    sendPacket(PacketInformation.IDLE, PacketInformation.IDLE, PacketInformation.IDLE);
 	    services = new Services(this);
 	    while (isRunnable) {
 		// len = reader.read(byteBuffer);
@@ -138,6 +139,9 @@ public class Network implements Runnable {
 	String data = dataPacket[PacketInformation.PacketStructrue.DATA];
 
 	switch (packetType) {
+	case PacketInformation.PacketType.FOOD:
+	    services.buyFoodResult(data);
+	    break;
 	case PacketInformation.PacketType.IS_OK:
 	    break;
 	case PacketInformation.PacketType.IS_FAIL:
@@ -153,6 +157,7 @@ public class Network implements Runnable {
 	    services.loginSuccess(data);
 	    break;
 	case PacketInformation.PacketType.IS_FAIL:
+	    view.loginFail();
 	    break;
 	}
     }
@@ -203,6 +208,12 @@ public class Network implements Runnable {
 	    break;
 	case PacketInformation.PacketType.IS_START:
 	    services.isStart(data);
+	    break;
+	case PacketInformation.PacketType.COM_NUM:
+	    comNum = Integer.parseInt(data);
+//	    Main.log("comNum : " + comNum);
+	    view.statusInfo.statusComNum.setText("PC " + comNum);
+	    view.mainComNum.setText("PC " + comNum);
 	    break;
 	case PacketInformation.PacketType.COM_PREPAID_INFO:
 	    break;

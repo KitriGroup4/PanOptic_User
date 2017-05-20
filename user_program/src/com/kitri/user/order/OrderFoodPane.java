@@ -1,6 +1,7 @@
 package com.kitri.user.order;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.util.Vector;
 
@@ -40,25 +41,23 @@ public class OrderFoodPane extends JPanel {
     public OrderFoodPane(Order order) {
 	this.order = order;
 	// String columnNames[] = { "»çÁø", "À½½Ä¸Þ´º", "°¡°Ý" };
-//	setRowData();
 	// setRowData();
-//	Vector temp = new Vector();
-//	temp.add("img");
-//	temp.add("¸ÅÁ¦");
-//	temp.add(5000);
-//	rowDatas.addElement(temp);
-//	temp = new Vector<>();
-//	temp.add("img");
-//	temp.add("±èÄ¡Âò");
-//	temp.add(25000);
-//	rowDatas.addElement(temp);
+	// setRowData();
+	// Vector temp = new Vector();
+	// temp.add("img");
+	// temp.add("¸ÅÁ¦");
+	// temp.add(5000);
+	// rowDatas.addElement(temp);
+	// temp = new Vector<>();
+	// temp.add("img");
+	// temp.add("±èÄ¡Âò");
+	// temp.add(25000);
+	// rowDatas.addElement(temp);
 
 	// Object rowData[][] = { { "img", "¸ÅÄÞÁ¦À°µ¤¹ä", "5000¿ø" }, { "img",
 	// "¼ÒºÒ°í±âµ¤¹ä", "6000¿ø" } };
 
 	// JTable jTable = new JTable(rowData, columnNames);
-	
-
 
 	table = new JTable();
 
@@ -74,25 +73,29 @@ public class OrderFoodPane extends JPanel {
 	    foodTemp = order.foods.get(i);
 	    temp = new Vector<>();
 	    temp.add(foodTemp.getFoodNum());
+	    temp.add("tmp.jpg");
 	    temp.add(foodTemp.getFoodName());
 	    temp.add(foodTemp.getFoodPrice());
 	    rowDatas.addElement(temp);
-	    
+
 	}
-	
+
 	DefaultTableModel model = new DefaultTableModel(rowDatas, order.col) {
 	    @Override
 	    public boolean isCellEditable(int row, int column) {
 		return false;
 	    }
 	};
-	
+
 	table = new JTable(model);
 	table.getTableHeader().setReorderingAllowed(false);
 	table.getTableHeader().setResizingAllowed(false);
 	table.addMouseListener(order.mListener);
 
 	scrollPane = new JScrollPane(table);
+
+	Dimension d = table.getPreferredSize();
+	scrollPane.setPreferredSize(new Dimension(630, 500));
 	add(scrollPane);
 
     }

@@ -22,8 +22,6 @@ public class OrderListener implements ActionListener {
 	    order.clOrderContentsPane.show(order.orderContentsPane, "3");
 	} else if (o == order.orderBeveragebtn) {
 	    order.clOrderContentsPane.show(order.orderContentsPane, "2");
-	} else if (o == order.pointPaybtn) {
-	    orderByPoint();
 	}
 	// if (o == order.BeveragePane.beverageNamebtn) {
 	// sum += dto.getBeveragePrice();
@@ -40,11 +38,5 @@ public class OrderListener implements ActionListener {
 
     }
     
-    public void orderByPoint(){
-	OrderInfoDto dto = new OrderInfoDto();
-	
-	
-	
-    }
 
 }

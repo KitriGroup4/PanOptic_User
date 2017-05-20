@@ -28,6 +28,8 @@ public class PacketInformation {
 	public static final byte LOGIN = 3;
 	public static final byte JOIN = 4;
 	public static final byte BUY = 5;
+	public static final byte START = 6;
+	public static final byte END = 7;
     }
 
     public static class PacketType {
@@ -45,6 +47,7 @@ public class PacketInformation {
 	public static final byte FOOD_TYPE = 11;
 	public static final byte IS_END = 12;
 	public static final byte IS_START = 13;
+	public static final byte COM_NUM = 14;
     }
 
     public static class ComPrepaidInfo {

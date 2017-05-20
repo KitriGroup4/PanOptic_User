@@ -23,7 +23,7 @@ public class StatusInfo extends JFrame {
     private JPanel statusImagePane;
     private JLabel statusIdLabel;
     public JLabel statusId;
-    private JLabel statusComNumLabel;
+    public JLabel statusComNumLabel;
     public JLabel statusComNum;
     private JLabel usetimeLabel;
     public JLabel point;
@@ -91,7 +91,8 @@ public class StatusInfo extends JFrame {
 	statusComNumLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusComPane.add(statusComNumLabel);
 
-	statusComNum = new JLabel("PC1");
+//	statusComNum = new JLabel("PC1");
+	statusComNum = new JLabel();
 	statusComNum.setHorizontalAlignment(SwingConstants.CENTER);
 	statusComPane.add(statusComNum);
 
