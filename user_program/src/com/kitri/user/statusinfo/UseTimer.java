@@ -7,6 +7,7 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import com.kitri.user.main.Main;
+import com.kitri.user.network.PacketInformation;
 
 public class UseTimer {
 
@@ -29,25 +30,26 @@ public class UseTimer {
 
 	    @Override
 	    public void run() {
-		if (!isEnd) {
-		    status.useTimeLong += TIME_GAP;
-		    status.leftTimeLong -= TIME_GAP;
-		    status.useTimeCal.setTimeInMillis(status.useTimeLong);
+		status.useTimeLong += TIME_GAP;
+		status.leftTimeLong -= TIME_GAP;
+		status.useTimeCal.setTimeInMillis(status.useTimeLong);
+		status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
+		System.out.println(status.leftTimeLong);
+		if (status.leftTimeLong <= INITIAL_TIME) {
+		    status.listener.logout();
+		    status.leftTimeLong = INITIAL_TIME;
 		    status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
-		    System.out.println(status.leftTimeLong);
-		    if(status.leftTimeLong <= INITIAL_TIME){
-			status.listener.logout();
-			status.leftTimeLong = INITIAL_TIME;
-			 status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
-		    }
-		    status.restTime.setText(status.getLeftTime());
-		    status.usetime.setText(status.getUseTime());
-//		    Main.log(status.leftTimeCal.get(Calendar.HOUR) + ":" + status.leftTimeCal.get(Calendar.MINUTE) + ":" + status.leftTimeCal.get(Calendar.SECOND));
-//		    Main.log(status.useTimeCal.get(Calendar.HOUR) + ":" + status.useTimeCal.get(Calendar.MINUTE) + ":" + status.useTimeCal.get(Calendar.SECOND));
-		} else {
-		    Main.log("stop Timer !!");
-		    timer.cancel();
 		}
+		status.restTime.setText(status.getLeftTime());
+		status.usetime.setText(status.getUseTime());
+		Main.network.sendPacket(PacketInformation.Operation.TIMER, PacketInformation.PacketType.TIME, status.getLeftTime() + "," + status.getUseTime());
+		
+		// Main.log(status.leftTimeCal.get(Calendar.HOUR) + ":" +
+		// status.leftTimeCal.get(Calendar.MINUTE) + ":" +
+		// status.leftTimeCal.get(Calendar.SECOND));
+		// Main.log(status.useTimeCal.get(Calendar.HOUR) + ":" +
+		// status.useTimeCal.get(Calendar.MINUTE) + ":" +
+		// status.useTimeCal.get(Calendar.SECOND));
 
 	    }
 	}, cal.getTime(), TimeUnit.SECONDS.toMillis(1));
