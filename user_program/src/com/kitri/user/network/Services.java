@@ -97,6 +97,9 @@ public class Services {
 	    e.printStackTrace();
 	}
 	network.view.statusInfo.useTimer = new UseTimer(network.view.statusInfo);
+	network.view.statusInfo.listener.setStatusInfoField();
+	network.view.statusInfo.mp.listener.setMyPageField();
+	
 	// if (network.view.payType == PacketInformation.PacketType.POINT) {
 	// if (network.view.payment.isPoint) {
 	// network.view.pointException();
