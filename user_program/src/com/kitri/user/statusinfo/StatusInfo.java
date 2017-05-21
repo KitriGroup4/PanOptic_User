@@ -97,7 +97,7 @@ public class StatusInfo extends JFrame {
 	backgroundPane.add(statusIdPane);
 	statusIdPane.setLayout(new GridLayout(1, 2, 0, 0));
 
-	statusIdLabel = new JLabel("ID");
+	statusIdLabel = new JLabel();
 	statusIdLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusIdPane.add(statusIdLabel);
 

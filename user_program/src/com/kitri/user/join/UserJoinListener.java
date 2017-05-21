@@ -23,6 +23,19 @@ public class UserJoinListener implements ActionListener {
 	    joinUser();
 	} else 	if (o == join.joinCloseBtn) {
 	    join.setVisible(false);
+	    join.joinName.setText("");
+	    join.joinId.setText("");
+	    join.joinPw.setText("");
+	    join.joinPwCheck.setText("");
+	    join.joinEmailTf.setText("");
+	    join.joinHpTf.setText("");
+	    join.joinEmailTf.setText("");
+	    join.yy.setSelectedIndex(0);
+	    join.mm.setSelectedIndex(0);
+	    join.dd.setSelectedIndex(0);
+	    join.maleRadio.setSelected(true);
+	    join.femaleRadio.setSelected(false);
+	    join.isMale = true;
 	} else if (o == join.maleRadio){
 	    join.isMale = true;
 	} else if( o == join.femaleRadio){
