@@ -32,22 +32,33 @@ public class StatusInfoListener implements ActionListener {
 	    if (name != null)
 		status.tf.setText(name);
 	} else if (o == status.logoutBtn) {
-	    status.setVisible(false);
-	    status.login.programView.setVisible(false);
-	    status.login.setVisible(true);
-	    status.useTimer.timer.cancel();
-	    UserInfoDto uDto = new UserInfoDto();
-	    uDto = status.login.userInfo;
-	    uDto.setUserLeftTime(status.getLeftTime());
-	    uDto.setUserAccuTime(status.getUseTime());
+	    logout();
+	}
+    }
 
-	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.PacketType.USER_INFO, uDto.toString());
+    public void logout() {
+	status.setVisible(false);
+	status.login.programView.setVisible(false);
+	status.login.setVisible(true);
+	status.useTimer.timer.cancel();
+	UserInfoDto uDto = new UserInfoDto();
+	uDto = status.login.userInfo;
+	String accuTime = "";
+	uDto.setUserLeftTime(status.getLeftTime());
+	
+	if(uDto.getUserAccuTime() == null || uDto.getUserAccuTime().equals("null")){
+	accuTime = status.getUseTime();
+	} else {
+	accuTime = Main.sumTime(uDto.getUserAccuTime(), status.getUseTime());
+	}
+	uDto.setUserAccuTime(accuTime);
+
+	Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.PacketType.USER_INFO, uDto.toString());
 //	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.IDLE, PacketInformation.IDLE);
 
-	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.IDLE, PacketInformation.IDLE);
-	    Main.network.view.pwTf.setText("");
-	    Main.network.view.idTf.setText("");
-	}
+	Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.IDLE, PacketInformation.IDLE);
+	Main.network.view.pwTf.setText("");
+	Main.network.view.idTf.setText("");
     }
 
     public void setStatusInfoField() {

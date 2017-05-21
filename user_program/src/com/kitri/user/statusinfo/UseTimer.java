@@ -11,6 +11,7 @@ import com.kitri.user.main.Main;
 public class UseTimer {
 
     final long TIME_GAP = TimeUnit.MINUTES.toMillis(10);
+    final long INITIAL_TIME = -32400000;
     public boolean isEnd;
     public StatusInfo status;
     public Timer timer;
@@ -22,7 +23,7 @@ public class UseTimer {
 	isEnd = false;
 	this.status = status;
 	timer = new Timer(true);
-	status.useTimeLong = -32400000;
+	status.useTimeLong = INITIAL_TIME;
 
 	timer.scheduleAtFixedRate(new TimerTask() {
 
@@ -31,13 +32,18 @@ public class UseTimer {
 		if (!isEnd) {
 		    status.useTimeLong += TIME_GAP;
 		    status.leftTimeLong -= TIME_GAP;
-		    if(status.leftTimeLong <= 0){
-			
-		    }
 		    status.useTimeCal.setTimeInMillis(status.useTimeLong);
 		    status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
-		    Main.log(status.leftTimeCal.get(Calendar.HOUR) + ":" + status.leftTimeCal.get(Calendar.MINUTE) + ":" + status.leftTimeCal.get(Calendar.SECOND));
-		    Main.log(status.useTimeCal.get(Calendar.HOUR) + ":" + status.useTimeCal.get(Calendar.MINUTE) + ":" + status.useTimeCal.get(Calendar.SECOND));
+		    System.out.println(status.leftTimeLong);
+		    if(status.leftTimeLong <= INITIAL_TIME){
+			status.listener.logout();
+			status.leftTimeLong = INITIAL_TIME;
+			 status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
+		    }
+		    status.restTime.setText(status.getLeftTime());
+		    status.usetime.setText(status.getUseTime());
+//		    Main.log(status.leftTimeCal.get(Calendar.HOUR) + ":" + status.leftTimeCal.get(Calendar.MINUTE) + ":" + status.leftTimeCal.get(Calendar.SECOND));
+//		    Main.log(status.useTimeCal.get(Calendar.HOUR) + ":" + status.useTimeCal.get(Calendar.MINUTE) + ":" + status.useTimeCal.get(Calendar.SECOND));
 		} else {
 		    Main.log("stop Timer !!");
 		    timer.cancel();
