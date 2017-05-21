@@ -78,8 +78,6 @@ public class StatusInfo extends JFrame {
 	useTimeCal = Calendar.getInstance();
 	leftTimeCal = Calendar.getInstance();
 	
-	useTimeLong = 0;
-	leftTimeLong = 0;
 	format = new SimpleDateFormat("hh:mm:ss");
 	order = new Order();
 	mp = new MyPage();
@@ -97,7 +95,7 @@ public class StatusInfo extends JFrame {
 	backgroundPane.add(statusIdPane);
 	statusIdPane.setLayout(new GridLayout(1, 2, 0, 0));
 
-	statusIdLabel = new JLabel();
+	statusIdLabel = new JLabel("ID");
 	statusIdLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusIdPane.add(statusIdLabel);
 
