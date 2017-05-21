@@ -27,7 +27,8 @@ public class UseTimer {
 	    public void run() {
 		if (!isEnd) {
 		    status.useTimeLong += TimeUnit.SECONDS.toMillis(1);
-//		    Main.log();
+		    status.useTimeCal.setTimeInMillis(status.useTimeLong);
+//		    Main.log(status.useTimeCal.get(Calendar.HOUR) + ":" + status.useTimeCal.get(Calendar.MINUTE) + ":" + status.useTimeCal.get(Calendar.SECOND));
 		} else {
 		    Main.log("stop Timer !!");
 		    timer.cancel();

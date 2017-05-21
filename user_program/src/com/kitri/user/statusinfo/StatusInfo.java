@@ -78,6 +78,8 @@ public class StatusInfo extends JFrame {
 	useTimeCal = Calendar.getInstance();
 	leftTimeCal = Calendar.getInstance();
 	
+	useTimeLong = 0;
+	leftTimeLong = 0;
 	format = new SimpleDateFormat("hh:mm:ss");
 	order = new Order();
 	mp = new MyPage();

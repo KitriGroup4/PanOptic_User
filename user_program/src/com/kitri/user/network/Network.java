@@ -55,7 +55,6 @@ public class Network implements Runnable {
 		packets = buffReader.readLine();
 		if(packets == null){ 
 		    Main.log("recv : null !!!!!!!");
-		   continue;
 		}
 		Main.log("rcv : " + packets);
 		divisionPacket(packets);
@@ -224,6 +223,10 @@ public class Network implements Runnable {
 	    view.statusInfo.userInfo = new UserInfoDto();
 	    view.statusInfo.userInfo.setField(data);
 	    Main.log("userInfo : " + view.statusInfo.userInfo.toString());
+	    break;
+	case PacketInformation.PacketType.POINT:
+	    view.userPoint = Integer.parseInt(data);
+	    Main.log("userPoint : " + view.userPoint);
 	    break;
 	case PacketInformation.PacketType.COM_PREPAID_INFO:
 	    break;

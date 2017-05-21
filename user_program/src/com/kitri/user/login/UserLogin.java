@@ -44,6 +44,7 @@ public class UserLogin extends JFrame {
     public UserLoginListener listener;
     public UserJoin join;
     public UserInfoDto dto;
+    public int userPoint;
     public StatusInfo statusInfo;
     public int userNum;
     public UserProgramView programView;
