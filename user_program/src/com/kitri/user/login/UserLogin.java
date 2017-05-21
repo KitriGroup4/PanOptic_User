@@ -68,7 +68,7 @@ public class UserLogin extends JFrame {
      * Create the frame.
      */
     public UserLogin() {
-	statusInfo = new StatusInfo();
+	statusInfo = new StatusInfo(this);
 	programView = new UserProgramView();
 	join = new UserJoin();
 	listener = new UserLoginListener(this);
@@ -194,10 +194,11 @@ public class UserLogin extends JFrame {
 	joinBtn.addActionListener(listener);
 	loginBtn.addActionListener(listener);
 	pwTf.addActionListener(listener);
+	idTf.addActionListener(listener);
     }
 
     public void loginFail() {
-	JOptionPane.showMessageDialog(this, "아이디 혹은 비밀번호를 확인해주세요.", "로그인 실패", JOptionPane.WARNING_MESSAGE);
+	JOptionPane.showMessageDialog(this, "아이디, 비밀번호 혹은 시간을 확인해주세요.", "로그인 실패", JOptionPane.WARNING_MESSAGE);
 
     }
 
@@ -207,7 +208,8 @@ public class UserLogin extends JFrame {
     }
 
     public void joinSuccess() {
-	JOptionPane.showMessageDialog(this, "회원가입을 축하드립니다!!", "회원가입성공", JOptionPane.WARNING_MESSAGE);
+	join.setVisible(false);
+	JOptionPane.showMessageDialog(this, "회원가입을 축하드립니다!!", "회원가입성공", JOptionPane.DEFAULT_OPTION);
 
     }
 }

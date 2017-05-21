@@ -22,7 +22,7 @@ public class UserLoginListener implements ActionListener {
 	if (o == view.joinBtn) {
 	    // logic.viewJoin();
 	    view.join.setVisible(true);
-	} else if (o == view.loginBtn || o == view.pwTf) {
+	} else if (o == view.loginBtn || o == view.pwTf || o == view.idTf) {
 	    login();
 	}
     }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.kitri.user.dto.FoodDto;
 import com.kitri.user.dto.FoodTypeDto;
 import com.kitri.user.main.Main;
+import com.kitri.user.statusinfo.UseTimer;
 
 public class Services {
 
@@ -86,6 +87,7 @@ public class Services {
 	network.view.userNum = Integer.parseInt(data);
 	network.view.statusInfo.setVisible(true);
 	network.view.programView.setVisible(true);
+	network.view.statusInfo.useTimer = new UseTimer(network.view.statusInfo);
 	// if (network.view.payType == PacketInformation.PacketType.POINT) {
 	// if (network.view.payment.isPoint) {
 	// network.view.pointException();
