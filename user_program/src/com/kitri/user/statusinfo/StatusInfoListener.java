@@ -36,7 +36,13 @@ public class StatusInfoListener implements ActionListener {
 	    status.login.programView.setVisible(false);
 	    status.login.setVisible(true);
 	    status.useTimer.timer.cancel();
-	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.IDLE, PacketInformation.IDLE);
+	    UserInfoDto uDto = new UserInfoDto();
+	    uDto = status.login.userInfo;
+	    uDto.setUserLeftTime(status.getLeftTime());
+	    uDto.setUserAccuTime(status.getUseTime());
+
+	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.PacketType.USER_INFO, uDto.toString());
+//	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.IDLE, PacketInformation.IDLE);
 	}
     }
 

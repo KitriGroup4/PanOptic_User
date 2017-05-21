@@ -22,7 +22,7 @@ public class UseTimer {
 	isEnd = false;
 	this.status = status;
 	timer = new Timer(true);
-	status.useTimeLong = 0;
+	status.useTimeLong = -32400000;
 
 	timer.scheduleAtFixedRate(new TimerTask() {
 
@@ -31,6 +31,9 @@ public class UseTimer {
 		if (!isEnd) {
 		    status.useTimeLong += TIME_GAP;
 		    status.leftTimeLong -= TIME_GAP;
+		    if(status.leftTimeLong <= 0){
+			
+		    }
 		    status.useTimeCal.setTimeInMillis(status.useTimeLong);
 		    status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
 		    Main.log(status.leftTimeCal.get(Calendar.HOUR) + ":" + status.leftTimeCal.get(Calendar.MINUTE) + ":" + status.leftTimeCal.get(Calendar.SECOND));

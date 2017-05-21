@@ -45,8 +45,8 @@ public class StatusInfo extends JFrame {
     public StatusInfoListener listener;
     public TextField tf;
     public UserLogin login;
-    
-//    public UserInfoDto userInfo;
+
+    // public UserInfoDto userInfo;
     public UseTimer useTimer;
     public SimpleDateFormat format;
     public long useTimeLong;
@@ -61,7 +61,7 @@ public class StatusInfo extends JFrame {
 	EventQueue.invokeLater(new Runnable() {
 	    public void run() {
 		try {
-			StatusInfo frame = new StatusInfo(null);
+		    StatusInfo frame = new StatusInfo(null);
 		    frame.setVisible(true);
 		} catch (Exception e) {
 		    e.printStackTrace();
@@ -77,7 +77,7 @@ public class StatusInfo extends JFrame {
 	this.login = login;
 	useTimeCal = Calendar.getInstance();
 	leftTimeCal = Calendar.getInstance();
-	
+
 	useTimeLong = 0;
 	leftTimeLong = 0;
 	format = new SimpleDateFormat("hh:mm:ss");
@@ -114,7 +114,7 @@ public class StatusInfo extends JFrame {
 	statusComNumLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusComPane.add(statusComNumLabel);
 
-//	statusComNum = new JLabel("PC1");
+	// statusComNum = new JLabel("PC1");
 	statusComNum = new JLabel();
 	statusComNum.setHorizontalAlignment(SwingConstants.CENTER);
 	statusComPane.add(statusComNum);
@@ -165,7 +165,7 @@ public class StatusInfo extends JFrame {
 
 	comMoveBtn = new JButton("\uC790\uB9AC\uC774\uB3D9");
 	statusBottomPane.add(comMoveBtn);
-	
+
 	logoutBtn = new JButton("·Î±×¾Æ¿ô");
 	statusBottomPane.add(logoutBtn);
 
@@ -178,13 +178,21 @@ public class StatusInfo extends JFrame {
 	statusMessengerBtn.addActionListener(listener);
 	comMoveBtn.addActionListener(listener);
 	logoutBtn.addActionListener(listener);
-	
+
 	Dimension frameSize = this.getSize();
-	Toolkit.getDefaultToolkit().getScreenSize(); 
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+	Toolkit.getDefaultToolkit().getScreenSize();
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	this.setLocation((screenSize.width - frameSize.width), (screenSize.height - screenSize.height));
 	this.setResizable(false);
 	this.setUndecorated(true);
+    }
+
+    public String getLeftTime() {
+	return leftTimeCal.get(Calendar.HOUR) + ":" + leftTimeCal.get(Calendar.MINUTE) + ":" + leftTimeCal.get(Calendar.SECOND);
+    }
+    
+    public String getUseTime() {
+	return useTimeCal.get(Calendar.HOUR) + ":" + useTimeCal.get(Calendar.MINUTE) + ":" + useTimeCal.get(Calendar.SECOND);
     }
 
 }
