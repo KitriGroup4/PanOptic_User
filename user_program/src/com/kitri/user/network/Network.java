@@ -220,9 +220,9 @@ public class Network implements Runnable {
 	    view.mainComNum.setText("PC " + comNum);
 	    break;
 	case PacketInformation.PacketType.USER_INFO:
-	    view.statusInfo.userInfo = new UserInfoDto();
-	    view.statusInfo.userInfo.setField(data);
-	    Main.log("userInfo : " + view.statusInfo.userInfo.toString());
+	    view.userInfo = new UserInfoDto();
+	    view.userInfo.setField(data);
+	    Main.log("userInfo : " + view.statusInfo.toString());
 	    break;
 	case PacketInformation.PacketType.POINT:
 	    view.userPoint = Integer.parseInt(data);

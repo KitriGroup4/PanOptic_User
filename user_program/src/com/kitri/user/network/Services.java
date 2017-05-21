@@ -1,5 +1,6 @@
 package com.kitri.user.network;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import com.kitri.user.dto.FoodDto;
@@ -55,9 +56,9 @@ public class Services {
 
     public void buyFoodResult(String data) {
 	if (Integer.parseInt(data) == PacketInformation.PacketType.IS_OK) {
-	   network.view.statusInfo.order.buyFoodSuccess();
+	    network.view.statusInfo.order.buyFoodSuccess();
 	} else {
-	   network.view.statusInfo.order.buyFoodFail();
+	    network.view.statusInfo.order.buyFoodFail();
 	}
     }
 
@@ -87,6 +88,14 @@ public class Services {
 	network.view.userNum = Integer.parseInt(data);
 	network.view.statusInfo.setVisible(true);
 	network.view.programView.setVisible(true);
+
+	try {
+	    network.view.statusInfo.leftTimeLong = network.view.statusInfo.format
+		    .parse(network.view.statusInfo.login.userInfo.getUserLeftTime()).getTime();
+	} catch (ParseException e) {
+	    System.out.println(e.toString());
+	    e.printStackTrace();
+	}
 	network.view.statusInfo.useTimer = new UseTimer(network.view.statusInfo);
 	// if (network.view.payType == PacketInformation.PacketType.POINT) {
 	// if (network.view.payment.isPoint) {

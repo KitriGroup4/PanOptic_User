@@ -46,7 +46,7 @@ public class StatusInfo extends JFrame {
     public TextField tf;
     public UserLogin login;
     
-    public UserInfoDto userInfo;
+//    public UserInfoDto userInfo;
     public UseTimer useTimer;
     public SimpleDateFormat format;
     public long useTimeLong;

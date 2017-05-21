@@ -43,7 +43,7 @@ public class UserLogin extends JFrame {
     public JTextField mainComNum;
     public UserLoginListener listener;
     public UserJoin join;
-    public UserInfoDto dto;
+    public UserInfoDto userInfo;
     public int userPoint;
     public StatusInfo statusInfo;
     public int userNum;

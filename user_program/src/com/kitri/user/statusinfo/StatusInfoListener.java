@@ -41,8 +41,8 @@ public class StatusInfoListener implements ActionListener {
     }
 
     public void setStatusInfoField() {
-	status.statusId.setText(Main.network.view.dto.getUserId());
-	status.restTime.setText(Main.network.view.dto.getUserLeftTime());
+	status.statusId.setText(Main.network.view.userInfo.getUserId());
+	status.restTime.setText(Main.network.view.userInfo.getUserLeftTime());
 	// status.usetime.setText();
 	status.statusComNum.setText(Main.network.view.mainComNum.getText());
 	// status.point.setText(Main.network.login.dto.);Æ÷ÀÎÆ®
