@@ -13,7 +13,7 @@ import com.kitri.user.main.Main;
 
 public class Network implements Runnable {
     private final int SOCKET_TIMEOUT = 3000;
-    private final String IP = "192.168.0.2";
+    private final String IP = "172.20.10.2";
     private final int PORT = 9831;
 
     private Socket socket;
