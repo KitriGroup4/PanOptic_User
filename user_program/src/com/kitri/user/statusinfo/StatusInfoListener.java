@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import com.kitri.user.dto.UserInfoDto;
+import com.kitri.user.login.UserLogin;
 import com.kitri.user.main.Main;
 import com.kitri.user.network.PacketInformation;
 
 public class StatusInfoListener implements ActionListener {
     StatusInfo status;
     UserInfoDto dto;
-
     public StatusInfoListener(StatusInfo status) {
 	this.status = status;
     }
@@ -37,6 +37,8 @@ public class StatusInfoListener implements ActionListener {
 	    status.login.setVisible(true);
 	    status.useTimer.timer.cancel();
 	    Main.network.sendPacket(PacketInformation.Operation.LOGOUT, PacketInformation.IDLE, PacketInformation.IDLE);
+	    Main.network.view.pwTf.setText("");
+	    Main.network.view.idTf.setText("");
 	}
     }
 
@@ -45,7 +47,7 @@ public class StatusInfoListener implements ActionListener {
 	status.restTime.setText(Main.network.view.userInfo.getUserLeftTime());
 	// status.usetime.setText();
 	status.statusComNum.setText(Main.network.view.mainComNum.getText());
-	// status.point.setText(Main.network.login.dto.);포인트
+	status.point.setText(Main.network.view.userPoint+"");//포인트
 
     }
 
