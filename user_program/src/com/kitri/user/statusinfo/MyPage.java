@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -14,8 +15,10 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.Font;
+
+import javax.swing.border.LineBorder;
 
 public class MyPage extends JFrame {
 
@@ -45,6 +48,10 @@ public class MyPage extends JFrame {
     public MyPageListener listener;
     public JLabel mppgPwCheckLabel;
     public JPasswordField  mypgPwCheck;
+    
+    
+	ImageIcon wholeImageIcon = new ImageIcon("UserMainImage\\myPage.png");
+	Image wholeIamge = wholeImageIcon.getImage();
     /**
      * Launch the application.
      */
@@ -69,61 +76,79 @@ public class MyPage extends JFrame {
 	listener = new MyPageListener(this);
 	setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	setBounds(100, 100, 382, 489);
-	backgroundPane = new JPanel();
+	backgroundPane = new JPanel(){
+		@Override
+		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(wholeIamge, 0, 0, null);
+			setOpaque(false);
+		}
+	};
+	backgroundPane.setBackground(Color.WHITE);
 	backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 	setContentPane(backgroundPane);
 	backgroundPane.setLayout(null);
 
 	middlePane = new JPanel();
 	middlePane.setBounds(0, 79, 366, 302);
+	middlePane.setOpaque(false);
 	backgroundPane.add(middlePane);
 	middlePane.setLayout(null);
 
-	mypgName = new JLabel("New label");
+	mypgName = new JLabel("");
 	mypgName.setBounds(186, 37, 116, 15);
 	middlePane.add(mypgName);
 
 	mypgNameLabel = new JLabel("È¸¿øÀÌ¸§");
+	mypgNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgNameLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgNameLabel.setVerticalAlignment(SwingConstants.TOP);
-	mypgNameLabel.setBounds(79, 37, 69, 15);
+	mypgNameLabel.setBounds(55, 37, 114, 15);
 	middlePane.add(mypgNameLabel);
 
 	mypgIdLabel = new JLabel("ID");
+	mypgIdLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgIdLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgIdLabel.setBounds(79, 67, 69, 15);
+	mypgIdLabel.setBounds(55, 67, 114, 15);
 	middlePane.add(mypgIdLabel);
 
 	mypgPwLabel = new JLabel("PW");
+	mypgPwLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgPwLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgPwLabel.setBounds(79, 97, 69, 15);
+	mypgPwLabel.setBounds(55, 97, 114, 15);
 	middlePane.add(mypgPwLabel);
 
 	mypgHpLabel = new JLabel("ÇÚµåÆù¹øÈ£");
+	mypgHpLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgHpLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgHpLabel.setBounds(79, 155, 69, 15);
 	middlePane.add(mypgHpLabel);
 
 	mypgMailLabel = new JLabel("ÀÌ¸ÞÀÏÁÖ¼Ò");
+	mypgMailLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgMailLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgMailLabel.setBounds(79, 185, 69, 15);
 	middlePane.add(mypgMailLabel);
 
 	mypgAccuTimeLabel = new JLabel("´©Àû»ç¿ë½Ã°£");
+	mypgAccuTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgAccuTimeLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgAccuTimeLabel.setBounds(68, 210, 80, 15);
 	middlePane.add(mypgAccuTimeLabel);
 
 	mypgRestTimeLabel = new JLabel("ÀÜ¿©½Ã°£");
+	mypgRestTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgRestTimeLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgRestTimeLabel.setBounds(68, 241, 80, 15);
 	middlePane.add(mypgRestTimeLabel);
 
-	mypgId = new JLabel("New label");
+	mypgId = new JLabel("");
 	mypgId.setBounds(186, 67, 116, 15);
 	middlePane.add(mypgId);
 
 	mypgPwTf = new JPasswordField();
+	mypgPwTf.setBorder(new LineBorder(Color.WHITE));
+	mypgPwTf.setBackground(SystemColor.controlHighlight);
 	mypgPwTf.setBounds(186, 94, 116, 21);
 	middlePane.add(mypgPwTf);
 	mypgPwTf.setColumns(10);
@@ -139,11 +164,15 @@ public class MyPage extends JFrame {
 	middlePane.add(mypgPwCheck);
 	
 	mypgHpTf = new JTextField();
+	mypgHpTf.setBorder(new LineBorder(Color.WHITE));
+	mypgHpTf.setBackground(SystemColor.controlHighlight);
 	mypgHpTf.setColumns(10);
 	mypgHpTf.setBounds(186, 152, 116, 21);
 	middlePane.add(mypgHpTf);
 
 	mypgMailTf = new JTextField();
+	mypgMailTf.setBorder(new LineBorder(Color.WHITE));
+	mypgMailTf.setBackground(SystemColor.controlHighlight);
 	mypgMailTf.setColumns(10);
 	mypgMailTf.setBounds(186, 182, 116, 21);
 	middlePane.add(mypgMailTf);
@@ -159,6 +188,7 @@ public class MyPage extends JFrame {
 	middlePane.add(mypgRestTime);
 
 	mypgPointLabel = new JLabel("Æ÷ÀÎÆ®");
+	mypgPointLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	mypgPointLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgPointLabel.setBounds(68, 266, 80, 15);
 	middlePane.add(mypgPointLabel);
@@ -169,21 +199,32 @@ public class MyPage extends JFrame {
 
 	bottomPane = new JPanel();
 	bottomPane.setBounds(84, 378, 185, 62);
+	bottomPane.setOpaque(false);
 	backgroundPane.add(bottomPane);
 
 	mypgChangeBtn = new JButton("\uC218\uC815");
-
+	mypgChangeBtn.setBackground(new Color(135, 199, 255));
+	mypgChangeBtn.setForeground(Color.WHITE);
+	mypgChangeBtn.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgChangeBtn.addActionListener(new ActionListener() {
+	    public void actionPerformed(ActionEvent arg0) {
+	    }
+	});
 	bottomPane.add(mypgChangeBtn);
 
 	mypgCancelBtn = new JButton("\uCDE8\uC18C");
+	mypgCancelBtn.setBackground(new Color(135, 199, 255));
+	mypgCancelBtn.setForeground(Color.WHITE);
+	mypgCancelBtn.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
 	bottomPane.add(mypgCancelBtn);
 
 	titlePane = new JPanel();
+	titlePane.setOpaque(false);
 	titlePane.setBounds(54, 46, 268, 48);
 	backgroundPane.add(titlePane);
 
-	mypageTitleLabel = new JLabel("MyPage");
-	mypageTitleLabel.setFont(new Font("±¼¸²", Font.PLAIN, 25));
+	mypageTitleLabel = new JLabel("      ");
+	mypageTitleLabel.setFont(new Font("¹è´ÞÀÇ¹ÎÁ· µµÇö", Font.PLAIN, 20));
 	titlePane.add(mypageTitleLabel);
 
 	setVisible(false);
