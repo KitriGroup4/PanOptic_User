@@ -10,7 +10,7 @@ import com.kitri.user.main.Main;
 
 public class MyPageListener implements ActionListener {
     MyPage mp;
-    
+
     public MyPageListener(MyPage mp) {
 	this.mp = mp;
     }
@@ -19,32 +19,34 @@ public class MyPageListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 	Object o = e.getSource();
 	if (o == mp.mypgChangeBtn) {
-//		if(!mp.mypgPwCheck.getText().equals(mp.mypgPwTf.getText())){
-//			JOptionPane.showMessageDialog(mp, "비밀번호가 다릅니다.", "비밀번호 확인", JOptionPane.WARNING_MESSAGE);
-//		}
-//		else{
-//			Main.network.view.userInfo.setUserPw(mp.mypgPwTf.getText());
-//		}
-		chageMyPage();
-		mp.setVisible(false);
+	    // if(!mp.mypgPwCheck.getText().equals(mp.mypgPwTf.getText())){
+	    // JOptionPane.showMessageDialog(mp, "비밀번호가 다릅니다.", "비밀번호 확인",
+	    // JOptionPane.WARNING_MESSAGE);
+	    // }
+	    // else{
+	    // Main.network.view.userInfo.setUserPw(mp.mypgPwTf.getText());
+	    // }
+	    chageMyPage();
 	}
 	if (o == mp.mypgCancelBtn) {
 	    mp.setVisible(false);
 	}
 
     }
-    private void chageMyPage(){
-    	
-    	String pw = mp.mypgPwTf.getText().trim();
- 	    String pwCheck = mp.mypgPwCheck.getText().trim();
- 	    String email = mp.mypgMailTf.getText().trim();
- 	    String hp = mp.mypgHpTf.getText().trim();
- 	    
-    	if(changeCheckMyPage(pw,pwCheck,email,hp)){
-    		Main.network.view.userInfo.setUserPw(pw);
-    		Main.network.view.userInfo.setUserEmail(email);
-    		Main.network.view.userInfo.setUserHp(hp);
-    	}
+
+    private void chageMyPage() {
+
+	String pw = mp.mypgPwTf.getText().trim();
+	String pwCheck = mp.mypgPwCheck.getText().trim();
+	String email = mp.mypgMailTf.getText().trim();
+	String hp = mp.mypgHpTf.getText().trim();
+
+	if (changeCheckMyPage(pw, pwCheck, email, hp)) {
+	    Main.network.view.userInfo.setUserPw(pw);
+	    Main.network.view.userInfo.setUserEmail(email);
+	    Main.network.view.userInfo.setUserHp(hp);
+	    mp.setVisible(false);
+	}
     }
 
     public void setMyPageField() {
@@ -62,37 +64,37 @@ public class MyPageListener implements ActionListener {
 
     public void getMyPageField(MyPage mp) {
 
-    	Main.network.view.userInfo.setUserEmail(mp.mypgMailTf.getText());
-    	Main.network.view.userInfo.setUserHp(mp.mypgHpTf.getText());
-    	Main.network.view.userInfo.setUserPw(mp.mypgPwTf.getText());
+	Main.network.view.userInfo.setUserEmail(mp.mypgMailTf.getText());
+	Main.network.view.userInfo.setUserHp(mp.mypgHpTf.getText());
+	Main.network.view.userInfo.setUserPw(mp.mypgPwTf.getText());
     }
-    
-    private boolean changeCheckMyPage(String pw,String pwCheck,String email, String hp){
-    	int len = pw.length();
-    	if (len < 8) {
-    	    mp.pwTooShort();
-    	    return false;
-    	}
-    	if (!pw.equals(pwCheck)) {
-    		mp.pwCheckError();
-    	    return false;
-    	}
-    	len = hp.length();
-    	boolean isHp = true;
-    	for (int i = 0; i < len; i++) {
-    	    if (hp.charAt(i) < '0' || hp.charAt(i) > '9') {
-    		isHp = false;
-    		break;
-    	    }
-    	}
-    	if (len != 11 || !hp.startsWith("010") || !isHp) {
-    	    mp.hpInputError();
-    	    return false;
-    	}
-    	if (!email.contains("@") || !email.contains(".") || email.startsWith("@") || email.startsWith(".")) {
-    		mp.emailInputError();
-    	    return false;
-    	}
-		return true;
-    } 
+
+    private boolean changeCheckMyPage(String pw, String pwCheck, String email, String hp) {
+	int len = pw.length();
+	if (len < 8) {
+	    mp.pwTooShort();
+	    return false;
+	}
+	if (!pw.equals(pwCheck)) {
+	    mp.pwCheckError();
+	    return false;
+	}
+	len = hp.length();
+	boolean isHp = true;
+	for (int i = 0; i < len; i++) {
+	    if (hp.charAt(i) < '0' || hp.charAt(i) > '9') {
+		isHp = false;
+		break;
+	    }
+	}
+	if (len != 11 || !hp.startsWith("010") || !isHp) {
+	    mp.hpInputError();
+	    return false;
+	}
+	if (!email.contains("@") || !email.contains(".") || email.startsWith("@") || email.startsWith(".")) {
+	    mp.emailInputError();
+	    return false;
+	}
+	return true;
+    }
 }
