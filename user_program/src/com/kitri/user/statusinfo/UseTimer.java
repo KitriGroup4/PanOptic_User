@@ -11,7 +11,7 @@ import com.kitri.user.network.PacketInformation;
 
 public class UseTimer {
 
-    final long TIME_GAP = TimeUnit.MINUTES.toMillis(10);
+    final long TIME_GAP = TimeUnit.MINUTES.toMillis(1);
     final long INITIAL_TIME = -32400000;
     public boolean isEnd;
     public StatusInfo status;
@@ -34,7 +34,7 @@ public class UseTimer {
 		status.leftTimeLong -= TIME_GAP;
 		status.useTimeCal.setTimeInMillis(status.useTimeLong);
 		status.leftTimeCal.setTimeInMillis(status.leftTimeLong);
-		System.out.println(status.leftTimeLong);
+//		System.out.println(status.leftTimeLong);
 		if (status.leftTimeLong <= INITIAL_TIME) {
 		    status.listener.logout();
 		    status.leftTimeLong = INITIAL_TIME;

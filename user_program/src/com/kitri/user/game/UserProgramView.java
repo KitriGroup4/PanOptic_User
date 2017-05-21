@@ -73,6 +73,11 @@ public class UserProgramView extends JFrame {
 //			}
 //		});
 //	}
+	
+	public static void main(String[] args) {
+	    new UserProgramView().setVisible(true);
+	    
+	}
 	UserProgramView frame;
 	/**
 	 * Create the frame.
