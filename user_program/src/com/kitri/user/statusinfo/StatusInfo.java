@@ -5,11 +5,17 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import com.kitri.user.dto.UserInfoDto;
+import com.kitri.user.login.UserLogin;
 import com.kitri.user.messenger.Messenger;
 import com.kitri.user.order.Order;
 import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.Toolkit;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class StatusInfo extends JFrame {
     public Order order;
@@ -35,8 +41,18 @@ public class StatusInfo extends JFrame {
     public JButton statusMessengerBtn;
     public JButton statusOrderBtn;
     public JButton comMoveBtn;
+    public JButton logoutBtn;
     public StatusInfoListener listener;
     public TextField tf;
+    public UserLogin login;
+    
+    public UserInfoDto userInfo;
+    public UseTimer useTimer;
+    public SimpleDateFormat format;
+    public long useTimeLong;
+    public long leftTimeLong;
+    public Calendar useTimeCal;
+    public Calendar leftTimeCal;
 
     /**
      * Launch the application.
@@ -45,7 +61,7 @@ public class StatusInfo extends JFrame {
 	EventQueue.invokeLater(new Runnable() {
 	    public void run() {
 		try {
-			StatusInfo frame = new StatusInfo();
+			StatusInfo frame = new StatusInfo(null);
 		    frame.setVisible(true);
 		} catch (Exception e) {
 		    e.printStackTrace();
@@ -57,7 +73,12 @@ public class StatusInfo extends JFrame {
     /**
      * Create the frame.
      */
-    public StatusInfo() {
+    public StatusInfo(UserLogin login) {
+	this.login = login;
+	useTimeCal = Calendar.getInstance();
+	leftTimeCal = Calendar.getInstance();
+	
+	format = new SimpleDateFormat("hh:mm:ss");
 	order = new Order();
 	mp = new MyPage();
 	msg = new Messenger();
@@ -142,6 +163,9 @@ public class StatusInfo extends JFrame {
 
 	comMoveBtn = new JButton("\uC790\uB9AC\uC774\uB3D9");
 	statusBottomPane.add(comMoveBtn);
+	
+	logoutBtn = new JButton("·Î±×¾Æ¿ô");
+	statusBottomPane.add(logoutBtn);
 
 	statusImagePane = new JPanel();
 	statusImagePane.setBounds(0, 22, 100, 152);
@@ -151,6 +175,7 @@ public class StatusInfo extends JFrame {
 	statusMypageBtn.addActionListener(listener);
 	statusMessengerBtn.addActionListener(listener);
 	comMoveBtn.addActionListener(listener);
+	logoutBtn.addActionListener(listener);
 	
 	Dimension frameSize = this.getSize();
 	Toolkit.getDefaultToolkit().getScreenSize(); 

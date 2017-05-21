@@ -7,6 +7,7 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
+import com.kitri.user.dto.UserInfoDto;
 import com.kitri.user.login.UserLogin;
 import com.kitri.user.main.Main;
 
@@ -52,6 +53,10 @@ public class Network implements Runnable {
 		// len = reader.read(byteBuffer);
 
 		packets = buffReader.readLine();
+		if(packets == null){ 
+		    Main.log("recv : null !!!!!!!");
+		   continue;
+		}
 		Main.log("rcv : " + packets);
 		divisionPacket(packets);
 
@@ -171,7 +176,7 @@ public class Network implements Runnable {
 	    break;
 	case PacketInformation.PacketType.IS_OK:
 	    view.joinSuccess();
-	    view.join.setVisible(false);
+//	    view.join.setVisible(false);
 	    break;
 	case PacketInformation.PacketType.IS_FAIL:
 	    view.join.joinFailDialog();
@@ -214,6 +219,11 @@ public class Network implements Runnable {
 //	    Main.log("comNum : " + comNum);
 	    view.statusInfo.statusComNum.setText("PC " + comNum);
 	    view.mainComNum.setText("PC " + comNum);
+	    break;
+	case PacketInformation.PacketType.USER_INFO:
+	    view.statusInfo.userInfo = new UserInfoDto();
+	    view.statusInfo.userInfo.setField(data);
+	    Main.log("userInfo : " + view.statusInfo.userInfo.toString());
 	    break;
 	case PacketInformation.PacketType.COM_PREPAID_INFO:
 	    break;
