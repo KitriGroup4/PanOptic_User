@@ -52,7 +52,7 @@ public class UseTimer {
 		// status.useTimeCal.get(Calendar.SECOND));
 
 	    }
-	}, cal.getTime(), TimeUnit.SECONDS.toMillis(1));
+	}, TimeUnit.SECONDS.toMillis(1), TimeUnit.SECONDS.toMillis(1));
 
     }
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import com.kitri.user.dto.FoodDto;
 import com.kitri.user.dto.FoodTypeDto;
 import com.kitri.user.main.Main;
+import com.kitri.user.statusinfo.CheckRunningProcess;
 import com.kitri.user.statusinfo.UseTimer;
 
 public class Services {
@@ -97,6 +98,8 @@ public class Services {
 	    e.printStackTrace();
 	}
 	network.view.statusInfo.useTimer = new UseTimer(network.view.statusInfo);
+
+	network.view.statusInfo.runningProcess = new CheckRunningProcess(network.view.statusInfo);
 	network.view.statusInfo.listener.setStatusInfoField();
 	network.view.statusInfo.mp.listener.setMyPageField();
 	

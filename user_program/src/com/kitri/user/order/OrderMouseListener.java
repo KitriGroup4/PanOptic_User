@@ -38,6 +38,7 @@ public class OrderMouseListener extends MouseAdapter {
     public void mouseClicked(MouseEvent e) {
 	super.mouseClicked(e);
 
+	Main.log("click!!");
 	Object o = e.getSource();
 	if (o == order.beveragePane.table) {
 	    

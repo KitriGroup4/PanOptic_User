@@ -51,6 +51,7 @@ public class StatusInfo extends JFrame {
 
     // public UserInfoDto userInfo;
     public UseTimer useTimer;
+    public CheckRunningProcess runningProcess;
     public SimpleDateFormat format;
     public long useTimeLong;
     public long leftTimeLong;

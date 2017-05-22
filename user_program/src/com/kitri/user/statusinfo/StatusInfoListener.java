@@ -41,6 +41,7 @@ public class StatusInfoListener implements ActionListener {
 	status.login.programView.setVisible(false);
 	status.login.setVisible(true);
 	status.useTimer.timer.cancel();
+	status.runningProcess.timer.cancel();
 	UserInfoDto uDto = new UserInfoDto();
 	uDto = status.login.userInfo;
 	String accuTime = "";
