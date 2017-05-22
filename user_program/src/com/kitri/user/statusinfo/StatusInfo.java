@@ -167,9 +167,9 @@ public class StatusInfo extends JFrame {
 
 	statusBottomPane = new JPanel();
 	statusBottomPane.setOpaque(false);
-	statusBottomPane.setBounds(10, 195, 263, 216);
+	statusBottomPane.setBounds(10, 182, 263, 257);
 	backgroundPane.add(statusBottomPane);
-	statusBottomPane.setLayout(new GridLayout(4, 1, 0, 0));
+	statusBottomPane.setLayout(new GridLayout(5, 1, 0, 0));
 
 	statusMypageBtn = new JButton("마이페이지");
 	statusMypageBtn.setForeground(new Color(255, 255, 255));
