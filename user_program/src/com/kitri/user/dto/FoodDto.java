@@ -13,6 +13,7 @@ public class FoodDto {
     public int getFoodNum() {
 	return foodNum;
     }
+    
 
     public void setFoodNum(int foodNum) {
 	this.foodNum = foodNum;
