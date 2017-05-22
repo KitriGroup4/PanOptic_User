@@ -83,6 +83,7 @@ public class Messenger extends JFrame {
 		backgroundPane.add(msgTextAreaPane);
 		
 		msgtextArea = new JTextArea();
+		msgtextArea.setEnabled(false);
 		msgtextArea.setBorder(new MatteBorder(1, 1, 0, 0, (Color) new Color(176, 196, 222)));
 		msgtextArea.setBackground(new Color(240, 248, 255));
 		msgtextArea.setFont(new Font("Monospaced", Font.PLAIN, 18));

@@ -83,6 +83,7 @@ public class Order extends JFrame {
 	backgroundPane.setLayout(new BorderLayout(0, 0));
 
 	orderTitlePane = new JPanel();
+	orderTitlePane.setBackground(new Color(255, 255, 255));
 	orderTitlePane.setOpaque(false);
 	backgroundPane.add(orderTitlePane, BorderLayout.NORTH);
 	orderTitlePane.setLayout(new BorderLayout(100, 100));
@@ -98,16 +99,20 @@ public class Order extends JFrame {
 	orderMenuPane.setLayout(new GridLayout(7, 1, 0, 0));
 
 	orderContentsPane = new JPanel();
+	orderContentsPane.setBorder(new LineBorder(new Color(119, 136, 153)));
+	orderContentsPane.setBackground(new Color(255, 255, 255));
 	orderContentsPane.setOpaque(false);
 
 	orderContentsPane.setLayout(clOrderContentsPane);
 	beveragePane = new OrderBeveragePane(this);
+	beveragePane.setOpaque(false);
 	beveragePane.setBackground(new Color(255, 255, 255));
 	snackPane = new OrderSnackPane(this);
+	snackPane.setOpaque(false);
 	snackPane.setBackground(new Color(255, 255, 255));
 	foodPane = new OrderFoodPane(this);
-	foodPane.setBackground(new Color(255, 255, 255));
 	foodPane.setOpaque(false);
+	foodPane.setBackground(new Color(255, 255, 255));
 	orderContentsPane.add(foodPane, "1");
 	orderContentsPane.add(beveragePane, "2");
 	orderContentsPane.add(snackPane, "3");

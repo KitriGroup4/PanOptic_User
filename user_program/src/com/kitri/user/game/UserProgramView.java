@@ -76,6 +76,11 @@ public class UserProgramView extends JFrame {
 //			}
 //		});
 //	}
+	
+	public static void main(String[] args) {
+	    new UserProgramView().setVisible(true);
+	    
+	}
 	UserProgramView frame;
 	/**
 	 * Create the frame.
@@ -142,6 +147,7 @@ public class UserProgramView extends JFrame {
 		
 
 		enternetBtn = new JButton("\uC778\uD130\uB137\uBE0C\uB77C\uC6B0\uC800");
+		enternetBtn.setForeground(new Color(255, 255, 255));
 		enternetBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		enternetBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		enternetBtn.setBackground(new Color(200, 162, 255));
@@ -149,36 +155,42 @@ public class UserProgramView extends JFrame {
 		
 
 		issueGameBtn = new JButton("\uC778\uAE30\uAC8C\uC784");
+		issueGameBtn.setForeground(new Color(255, 255, 255));
 		issueGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		issueGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		issueGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(issueGameBtn);
 		
 		onlineGameBtn = new JButton("\uC628\uB77C\uC778\uAC8C\uC784");
+		onlineGameBtn.setForeground(new Color(255, 255, 255));
 		onlineGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		onlineGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		onlineGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(onlineGameBtn);
 		
 		actionGameBtn = new JButton("\uC561\uC158&FPS");
+		actionGameBtn.setForeground(new Color(255, 255, 255));
 		actionGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		actionGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		actionGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(actionGameBtn);
 		
 		cdGameBtn = new JButton("CD\uAC8C\uC784");
+		cdGameBtn.setForeground(new Color(255, 255, 255));
 		cdGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		cdGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		cdGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(cdGameBtn);
 		
 		sportsGameBtn = new JButton("  \uC2A4\uD3EC\uCE20&\uB808\uC774\uC2F1  ");
+		sportsGameBtn.setForeground(new Color(255, 255, 255));
 		sportsGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		sportsGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		sportsGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(sportsGameBtn);
 		
 		ectBtn = new JButton("\uAE30\uD0C0");
+		ectBtn.setForeground(new Color(255, 255, 255));
 		ectBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		ectBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
 		ectBtn.setBackground(new Color(200, 162, 255));

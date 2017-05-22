@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.kitri.user.dto.FoodDto;
 import com.kitri.user.main.Main;
+import java.awt.Color;
 
 public class OrderBeveragePane extends JPanel {
     // private String beverageName[] ={"아메리카노","카푸치노","카페라떼","카라멜마끼아또","까페모카",
@@ -72,8 +73,10 @@ public class OrderBeveragePane extends JPanel {
 	table.getTableHeader().setReorderingAllowed(false);
 	table.getTableHeader().setResizingAllowed(false);
 
+
 	table.addMouseListener(order.mListener);
 	scrollPane = new JScrollPane(table);
+	scrollPane.getViewport().setBackground(Color.WHITE);
 
 	Dimension d = table.getPreferredSize();
 	scrollPane.setPreferredSize(new Dimension(630, 500));

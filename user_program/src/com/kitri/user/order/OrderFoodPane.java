@@ -1,8 +1,6 @@
 package com.kitri.user.order;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
+import java.awt.*;
 import java.util.Vector;
 
 import javax.swing.JFrame;
@@ -88,11 +86,13 @@ public class OrderFoodPane extends JPanel {
 	};
 
 	table = new JTable(model);
+	
 	table.getTableHeader().setReorderingAllowed(false);
 	table.getTableHeader().setResizingAllowed(false);
 	table.addMouseListener(order.mListener);
 
 	scrollPane = new JScrollPane(table);
+	scrollPane.getViewport().setBackground(Color.WHITE);
 
 	Dimension d = table.getPreferredSize();
 	scrollPane.setPreferredSize(new Dimension(630, 500));

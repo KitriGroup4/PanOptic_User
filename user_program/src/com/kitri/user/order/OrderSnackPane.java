@@ -1,5 +1,6 @@
 package com.kitri.user.order;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Vector;
 
@@ -76,6 +77,8 @@ public class OrderSnackPane extends JPanel {
 	table.addMouseListener(order.mListener);
 
 	scrollPane = new JScrollPane(table);
+	scrollPane.getViewport().setBackground(Color.WHITE);
+	
 	Dimension d = table.getPreferredSize();
 	scrollPane.setPreferredSize(new Dimension(630, 500));
 	add(scrollPane);

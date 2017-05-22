@@ -7,6 +7,8 @@ public class PacketInformation {
 
     public static byte PACKET_SIZE = 4;
     public static byte IDLE = -99;
+    public final static String PACKET_DIVISION = "!";
+    public final static String PACKET_PARTITION = "//";
 
     public static class ProgramValue {
 	public static final byte ADMIN = 0;
@@ -50,6 +52,7 @@ public class PacketInformation {
 	public static final byte IS_END = 12;
 	public static final byte IS_START = 13;
 	public static final byte COM_NUM = 14;
+	public static final byte PROGRAM = 15;
     }
 
     public static class ComPrepaidInfo {
