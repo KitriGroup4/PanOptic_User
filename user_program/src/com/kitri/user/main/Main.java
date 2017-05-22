@@ -15,21 +15,21 @@ public class Main {
 	Thread thread = new Thread(network);
     }
 
-    public static void log(String str) {
-	if (isLog) {
-	    System.out.println(str);
+	public static void log(String str) {
+		if (isLog) {
+			System.out.println(str);
+		}
 	}
-    }
 
-    public static void log(long str) {
-	if (isLog) {
-	    System.out.println(str);
+	public static void log(long str) {
+		if (isLog) {
+			System.out.println(str);
+		}
 	}
-    }
 
-    public static void log(int num) {
-	if (isLog) {
-	    System.out.println(num);
+	public static void log(int num) {
+		if (isLog) {
+			System.out.println(num);
+		}
 	}
-    }
 }
