@@ -13,7 +13,7 @@ import com.kitri.user.main.Main;
 
 public class Network implements Runnable {
     private final int SOCKET_TIMEOUT = 3000;
-    private final String IP = "192.168.18.25";
+    private final String IP = "localhost";
     private final int PORT = 9831;
 
     private Socket socket;
@@ -133,9 +133,23 @@ public class Network implements Runnable {
 	case PacketInformation.Operation.BUY:
 	    buyResponse(packetType);
 	    break;
+	case PacketInformation.Operation.MESSAGE:
+	    messageResponse(packetType);
+	    break;
 	default:
 
 	}
+    }
+    
+    private void messageResponse(int packetType){
+	String data = dataPacket[PacketInformation.PacketStructrue.DATA];
+	
+	switch(packetType){
+	case PacketInformation.PacketType.ADMIN_MSG:
+	    view.statusInfo.msg.listener.setChatArea(data, PacketInformation.PacketType.ADMIN_MSG);
+	    break;
+	}
+	
     }
 
     private void buyResponse(int packetType) {

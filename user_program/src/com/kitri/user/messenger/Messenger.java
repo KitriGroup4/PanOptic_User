@@ -32,7 +32,7 @@ public class Messenger extends JFrame {
 	private JPanel messageTfPane;
 	public JButton msgBtn;
 	public MessengerListener listener;
-
+	public StringBuilder messageBuffer;
 	/**
 	 * Launch the application.
 	 */
@@ -53,6 +53,7 @@ public class Messenger extends JFrame {
 	 * Create the frame.
 	 */
 	public Messenger() {
+	    	messageBuffer = new StringBuilder("");
 		listener = new MessengerListener(this);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 433, 354);
@@ -107,6 +108,7 @@ public class Messenger extends JFrame {
 		messageTfPane.add(msgBtn, BorderLayout.EAST);
 		msgBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 13));
 		msgBtn.addActionListener(listener);
+		msgTf.addActionListener(listener);
 		
 		setVisible(false);
 	}
