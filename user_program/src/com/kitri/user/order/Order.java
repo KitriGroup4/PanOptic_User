@@ -102,8 +102,11 @@ public class Order extends JFrame {
 
 	orderContentsPane.setLayout(clOrderContentsPane);
 	beveragePane = new OrderBeveragePane(this);
+	beveragePane.setBackground(new Color(255, 255, 255));
 	snackPane = new OrderSnackPane(this);
+	snackPane.setBackground(new Color(255, 255, 255));
 	foodPane = new OrderFoodPane(this);
+	foodPane.setBackground(new Color(255, 255, 255));
 	foodPane.setOpaque(false);
 	orderContentsPane.add(foodPane, "1");
 	orderContentsPane.add(beveragePane, "2");

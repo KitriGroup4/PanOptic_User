@@ -27,6 +27,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JFormattedTextField;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 public class UserProgramView extends JFrame {
 	public  GameViewMouseListener gmListener;
@@ -89,6 +92,7 @@ public class UserProgramView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 600);
 		backgroundPane = new JPanel();
+		backgroundPane.setBackground(Color.WHITE);
 		backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(backgroundPane);
 		backgroundPane.setLayout(new BorderLayout(0, 0));
@@ -98,6 +102,8 @@ public class UserProgramView extends JFrame {
 		emptyPane.setLayout(new BorderLayout(100, 100));
 		
 		emptyTitleLabel = new JLabel("              ");
+		emptyTitleLabel.setBorder(new LineBorder(Color.WHITE));
+		emptyTitleLabel.setBackground(new Color(230, 230, 250));
 		emptyTitleLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 31));
 		emptyPane.add(emptyTitleLabel);
 		
@@ -109,8 +115,11 @@ public class UserProgramView extends JFrame {
 		
 		gameContentsPane.setLayout(clGameContentsPane);
 		hotGamePane = new HotGamePane(this);
+		hotGamePane.setBackground(new Color(255, 255, 255));
 		onlineGamePane= new OnlineGamePane(this);
+		onlineGamePane.setBackground(new Color(255, 255, 255));
 		gameEnternetPane = new InternetPane(this);
+		gameEnternetPane.setBackground(new Color(255, 255, 255));
 		
 		
 		gameContentsPane.add(gameEnternetPane, "1");
@@ -120,39 +129,64 @@ public class UserProgramView extends JFrame {
 		backgroundPane.add(gameContentsPane, BorderLayout.CENTER);
 		
 		actionGamePane = new ActionGamePane(this);
+		actionGamePane.setBackground(new Color(255, 255, 255));
 		gameContentsPane.add(actionGamePane, "4");
 		
 		cdGamePane = new CdGamePane(this);
+		cdGamePane.setBackground(new Color(255, 255, 255));
 		gameContentsPane.add(cdGamePane, "5");
 		
 		sportsGamePane = new SportsGamePane(this);
+		sportsGamePane.setBackground(new Color(255, 255, 255));
 		gameContentsPane.add(sportsGamePane, "6");
 		
 		ectGamePane = new EctGamePane(this);
+		ectGamePane.setBackground(new Color(255, 255, 255));
 		gameContentsPane.add(ectGamePane, "7");
 		
 		
 
 		enternetBtn = new JButton("\uC778\uD130\uB137\uBE0C\uB77C\uC6B0\uC800");
+		enternetBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		enternetBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		enternetBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(enternetBtn);
 		
 
 		issueGameBtn = new JButton("\uC778\uAE30\uAC8C\uC784");
+		issueGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		issueGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		issueGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(issueGameBtn);
 		
 		onlineGameBtn = new JButton("\uC628\uB77C\uC778\uAC8C\uC784");
+		onlineGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		onlineGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		onlineGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(onlineGameBtn);
 		
 		actionGameBtn = new JButton("\uC561\uC158&FPS");
+		actionGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		actionGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		actionGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(actionGameBtn);
 		
 		cdGameBtn = new JButton("CD\uAC8C\uC784");
+		cdGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		cdGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		cdGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(cdGameBtn);
 		
-		sportsGameBtn = new JButton("\uC2A4\uD3EC\uCE20&\uB808\uC774\uC2F1");
+		sportsGameBtn = new JButton("  \uC2A4\uD3EC\uCE20&\uB808\uC774\uC2F1  ");
+		sportsGameBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		sportsGameBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		sportsGameBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(sportsGameBtn);
 		
 		ectBtn = new JButton("\uAE30\uD0C0");
+		ectBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		ectBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255)));
+		ectBtn.setBackground(new Color(200, 162, 255));
 		gameListPane.add(ectBtn);
 		
 		
