@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 public class Order extends JFrame {
 
@@ -75,28 +77,34 @@ public class Order extends JFrame {
 	setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	setBounds(100, 100, 900, 600);
 	backgroundPane = new JPanel();
+	backgroundPane.setBackground(Color.WHITE);
 	backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 	setContentPane(backgroundPane);
 	backgroundPane.setLayout(new BorderLayout(0, 0));
 
 	orderTitlePane = new JPanel();
+	orderTitlePane.setOpaque(false);
 	backgroundPane.add(orderTitlePane, BorderLayout.NORTH);
 	orderTitlePane.setLayout(new BorderLayout(100, 100));
 
-	orderTitleLabel = new JLabel("   Order\t");
-	orderTitleLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 31));
+	orderTitleLabel = new JLabel("Order\t");
+	orderTitleLabel.setIcon(new ImageIcon("UserMainImage\\odermark.png"));
+	orderTitleLabel.setFont(new Font("¹è´ÞÀÇ¹ÎÁ· µµÇö", Font.PLAIN, 31));
 	orderTitlePane.add(orderTitleLabel);
 
 	orderMenuPane = new JPanel();
+	orderMenuPane.setOpaque(false);
 	backgroundPane.add(orderMenuPane, BorderLayout.WEST);
 	orderMenuPane.setLayout(new GridLayout(7, 1, 0, 0));
 
 	orderContentsPane = new JPanel();
+	orderContentsPane.setOpaque(false);
 
 	orderContentsPane.setLayout(clOrderContentsPane);
 	beveragePane = new OrderBeveragePane(this);
 	snackPane = new OrderSnackPane(this);
 	foodPane = new OrderFoodPane(this);
+	foodPane.setOpaque(false);
 	orderContentsPane.add(foodPane, "1");
 	orderContentsPane.add(beveragePane, "2");
 	orderContentsPane.add(snackPane, "3");
@@ -104,33 +112,63 @@ public class Order extends JFrame {
 	backgroundPane.add(orderContentsPane, BorderLayout.CENTER);
 
 	orderFoodbtn = new JButton("\uC74C\uC2DD");
+	orderFoodbtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(248, 248, 255)));
+	orderFoodbtn.setForeground(Color.WHITE);
+	orderFoodbtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+	orderFoodbtn.setBackground(new Color(200, 162, 255));
 	orderMenuPane.add(orderFoodbtn);
 
 	orderSnackbtn = new JButton("\uC2A4\uB0B5");
+	orderSnackbtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(248, 248, 255)));
+	orderSnackbtn.setForeground(Color.WHITE);
+	orderSnackbtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+	orderSnackbtn.setBackground(new Color(200, 162, 255));
 	orderMenuPane.add(orderSnackbtn);
 
 	orderBeveragebtn = new JButton("\uC74C\uB8CC");
+	orderBeveragebtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(248, 248, 255)));
+	orderBeveragebtn.setForeground(Color.WHITE);
+	orderBeveragebtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+	orderBeveragebtn.setBackground(new Color(200, 162, 255));
 	orderMenuPane.add(orderBeveragebtn);
+		
+			orderCancelBtn = new JButton("\uC8FC\uBB38\uCDE8\uC18C");
+			orderCancelBtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(248, 248, 255)));
+			orderCancelBtn.setForeground(Color.WHITE);
+			orderCancelBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+			orderCancelBtn.setBackground(new Color(200, 162, 255));
+			orderMenuPane.add(orderCancelBtn);
+			orderCancelBtn.addMouseListener(mListener);
+	
+		pointPaybtn = new JButton("    \uD3EC\uC778\uD2B8\uACB0\uC81C    ");
+		pointPaybtn.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(248, 248, 255)));
+		pointPaybtn.setForeground(Color.WHITE);
+		pointPaybtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		pointPaybtn.setBackground(new Color(200, 162, 255));
+		orderMenuPane.add(pointPaybtn);
+		pointPaybtn.addMouseListener(mListener);
 
 	emptyLabel = new JLabel("");
+	emptyLabel.setBackground(new Color(224, 255, 255));
+	emptyLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 	orderMenuPane.add(emptyLabel);
-
-	orderCancelBtn = new JButton("\uC8FC\uBB38\uCDE8\uC18C");
-	orderMenuPane.add(orderCancelBtn);
-
-	totalPriceLabel = new JLabel("\uD569\uACC4:");
-	orderMenuPane.add(totalPriceLabel);
-
-	pointPaybtn = new JButton("\uD3EC\uC778\uD2B8\uACB0\uC81C");
-	orderMenuPane.add(pointPaybtn);
+	
+		totalPriceLabel = new JLabel("\uD569\uACC4:");
+		totalPriceLabel.setBorder(new MatteBorder(1, 1, 1, 1, (Color) null));
+		totalPriceLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		orderMenuPane.add(totalPriceLabel);
 
 	orderedListPane = new JPanel();
+	orderedListPane.setOpaque(false);
 	backgroundPane.add(orderedListPane, BorderLayout.EAST);
 	orderedListPane.setLayout(new BorderLayout(0, 0));
 
 	orderedListTitle = new JTextField();
+	orderedListTitle.setForeground(new Color(255, 255, 255));
+	orderedListTitle.setBorder(new LineBorder(new Color(255, 255, 255)));
+	orderedListTitle.setBackground(new Color(135, 206, 250));
 	orderedListTitle.setEditable(false);
-	orderedListTitle.setFont(new Font("±¼¸²", Font.BOLD, 15));
+	orderedListTitle.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 	orderedListTitle.setHorizontalAlignment(SwingConstants.CENTER);
 	orderedListTitle.setText("\uC8FC\uBB38\uB0B4\uC5ED");
 	orderedListPane.add(orderedListTitle, BorderLayout.NORTH);
@@ -144,8 +182,6 @@ public class Order extends JFrame {
 	orderFoodbtn.addActionListener(listener);
 	orderBeveragebtn.addActionListener(listener);
 	orderSnackbtn.addActionListener(listener);
-	pointPaybtn.addMouseListener(mListener);
-	orderCancelBtn.addMouseListener(mListener);
     }
 
     public void buyFoodSuccess() {

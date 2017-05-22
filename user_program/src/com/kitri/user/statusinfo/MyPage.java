@@ -100,46 +100,46 @@ public class MyPage extends JFrame {
 	middlePane.add(mypgName);
 
 	mypgNameLabel = new JLabel("È¸¿øÀÌ¸§");
-	mypgNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgNameLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgNameLabel.setVerticalAlignment(SwingConstants.TOP);
 	mypgNameLabel.setBounds(55, 37, 114, 15);
 	middlePane.add(mypgNameLabel);
 
 	mypgIdLabel = new JLabel("ID");
-	mypgIdLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgIdLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgIdLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgIdLabel.setBounds(55, 67, 114, 15);
 	middlePane.add(mypgIdLabel);
 
 	mypgPwLabel = new JLabel("PW");
-	mypgPwLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgPwLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgPwLabel.setHorizontalAlignment(SwingConstants.TRAILING);
 	mypgPwLabel.setBounds(55, 97, 114, 15);
 	middlePane.add(mypgPwLabel);
 
 	mypgHpLabel = new JLabel("ÇÚµåÆù¹øÈ£");
-	mypgHpLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgHpLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgHpLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgHpLabel.setBounds(79, 155, 69, 15);
+	mypgHpLabel.setBounds(100, 155, 69, 15);
 	middlePane.add(mypgHpLabel);
 
 	mypgMailLabel = new JLabel("ÀÌ¸ÞÀÏÁÖ¼Ò");
-	mypgMailLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgMailLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgMailLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgMailLabel.setBounds(79, 185, 69, 15);
+	mypgMailLabel.setBounds(100, 185, 69, 15);
 	middlePane.add(mypgMailLabel);
 
 	mypgAccuTimeLabel = new JLabel("´©Àû»ç¿ë½Ã°£");
-	mypgAccuTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgAccuTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgAccuTimeLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgAccuTimeLabel.setBounds(68, 210, 80, 15);
+	mypgAccuTimeLabel.setBounds(89, 210, 80, 15);
 	middlePane.add(mypgAccuTimeLabel);
 
 	mypgRestTimeLabel = new JLabel("ÀÜ¿©½Ã°£");
-	mypgRestTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgRestTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgRestTimeLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgRestTimeLabel.setBounds(68, 241, 80, 15);
+	mypgRestTimeLabel.setBounds(89, 241, 80, 15);
 	middlePane.add(mypgRestTimeLabel);
 
 	mypgId = new JLabel("");
@@ -154,11 +154,14 @@ public class MyPage extends JFrame {
 	mypgPwTf.setColumns(10);
 	
 	mppgPwCheckLabel = new JLabel("Pw Check");
+	mppgPwCheckLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mppgPwCheckLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mppgPwCheckLabel.setBounds(79, 125, 69, 15);
+	mppgPwCheckLabel.setBounds(100, 125, 69, 15);
 	
 	middlePane.add(mppgPwCheckLabel);
 	mypgPwCheck = new JPasswordField();
+	mypgPwCheck.setBackground(SystemColor.controlHighlight);
+	mypgPwCheck.setBorder(new LineBorder(Color.WHITE));
 	mypgPwCheck.setColumns(10);
 	mypgPwCheck.setBounds(186, 122, 116, 21);
 	middlePane.add(mypgPwCheck);
@@ -179,21 +182,21 @@ public class MyPage extends JFrame {
 	
 	
 
-	mypgAccuTime = new JLabel("New label");
+	mypgAccuTime = new JLabel("");
 	mypgAccuTime.setBounds(186, 213, 116, 15);
 	middlePane.add(mypgAccuTime);
 
-	mypgRestTime = new JLabel("New label");
+	mypgRestTime = new JLabel("");
 	mypgRestTime.setBounds(186, 241, 116, 15);
 	middlePane.add(mypgRestTime);
 
 	mypgPointLabel = new JLabel("Æ÷ÀÎÆ®");
-	mypgPointLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 15));
+	mypgPointLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 12));
 	mypgPointLabel.setHorizontalAlignment(SwingConstants.TRAILING);
-	mypgPointLabel.setBounds(68, 266, 80, 15);
+	mypgPointLabel.setBounds(89, 266, 80, 15);
 	middlePane.add(mypgPointLabel);
 
-	mypgPoint = new JLabel("New label");
+	mypgPoint = new JLabel("");
 	mypgPoint.setBounds(186, 266, 116, 15);
 	middlePane.add(mypgPoint);
 

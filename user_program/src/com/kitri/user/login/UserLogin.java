@@ -12,6 +12,7 @@ import java.awt.*;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 public class UserLogin extends JFrame {
 
@@ -194,7 +195,7 @@ public class UserLogin extends JFrame {
 	emptyPane.add(emptyLabel8);
 
 	joinBtn = new JButton("\uD68C\uC6D0\uAC00\uC785");
-	joinBtn.setBorder(new LineBorder(Color.WHITE, 1, true));
+	joinBtn.setBorder(new MatteBorder(0, 0, 2, 2, (Color) new Color(147, 112, 219)));
 	joinBtn.setForeground(Color.WHITE);
 	joinBtn.setBackground(new Color(200, 162, 255));
 	joinBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
@@ -206,7 +207,7 @@ public class UserLogin extends JFrame {
 	emptyPane1.setLayout(new GridLayout(1, 2, 0, 0));
 
 	loginBtn = new JButton("\uB85C\uADF8\uC778");
-	loginBtn.setBorder(new LineBorder(Color.WHITE, 1, true));
+	loginBtn.setBorder(new MatteBorder(0, 0, 2, 2, (Color) new Color(147, 112, 219)));
 	loginBtn.setForeground(Color.WHITE);
 	loginBtn.setBackground(new Color(200, 162, 255));
 	loginBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 16));
