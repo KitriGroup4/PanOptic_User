@@ -16,6 +16,9 @@ import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.border.MatteBorder;
 
 public class StatusInfo extends JFrame {
     public Order order;
@@ -89,88 +92,124 @@ public class StatusInfo extends JFrame {
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setBounds(100, 100, 279, 465);
 	backgroundPane = new JPanel();
-	backgroundPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+	backgroundPane.setBackground(new Color(255, 255, 255));
+	backgroundPane.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(192, 192, 192)));
 	setContentPane(backgroundPane);
 	backgroundPane.setLayout(null);
 	statusIdPane = new JPanel();
-	statusIdPane.setBounds(98, 52, 165, 30);
+	statusIdPane.setOpaque(false);
+	statusIdPane.setBounds(108, 52, 165, 30);
 	backgroundPane.add(statusIdPane);
 	statusIdPane.setLayout(new GridLayout(1, 2, 0, 0));
 
 	statusIdLabel = new JLabel("ID");
+	statusIdLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusIdLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusIdPane.add(statusIdLabel);
 
-	statusId = new JLabel("New label");
+	statusId = new JLabel("");
+	statusId.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusId.setHorizontalAlignment(SwingConstants.CENTER);
 	statusIdPane.add(statusId);
 
 	statusComPane = new JPanel();
-	statusComPane.setBounds(98, 22, 165, 30);
+	statusComPane.setOpaque(false);
+	statusComPane.setBounds(108, 22, 165, 30);
 	backgroundPane.add(statusComPane);
 	statusComPane.setLayout(new GridLayout(1, 2, 0, 0));
 
 	statusComNumLabel = new JLabel("\uC88C\uC11D");
+	statusComNumLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusComNumLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusComPane.add(statusComNumLabel);
 
 	// statusComNum = new JLabel("PC1");
 	statusComNum = new JLabel();
+	statusComNum.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusComNum.setHorizontalAlignment(SwingConstants.CENTER);
 	statusComPane.add(statusComNum);
 
 	statusInfoPane = new JPanel();
-	statusInfoPane.setBounds(98, 81, 165, 93);
+	statusInfoPane.setOpaque(false);
+	statusInfoPane.setBounds(108, 81, 165, 93);
 	backgroundPane.add(statusInfoPane);
 	statusInfoPane.setLayout(new GridLayout(3, 2, 0, 0));
 
 	usetimeLabel = new JLabel("\uC0AC\uC6A9\uC2DC\uAC04");
+	usetimeLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	usetimeLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusInfoPane.add(usetimeLabel);
 
-	usetime = new JLabel("New label");
+	usetime = new JLabel("");
+	usetime.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	usetime.setHorizontalAlignment(SwingConstants.CENTER);
 	statusInfoPane.add(usetime);
 
 	restTimeLabel = new JLabel("\uC794\uC5EC\uC2DC\uAC04");
+	restTimeLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	restTimeLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusInfoPane.add(restTimeLabel);
 
-	restTime = new JLabel("New label");
+	restTime = new JLabel("");
+	restTime.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	restTime.setHorizontalAlignment(SwingConstants.CENTER);
 	statusInfoPane.add(restTime);
 
 	pointLabel = new JLabel("\uD3EC\uC778\uD2B8");
+	pointLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	pointLabel.setHorizontalAlignment(SwingConstants.LEFT);
 	statusInfoPane.add(pointLabel);
 
-	point = new JLabel("New label");
+	point = new JLabel("");
+	point.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	point.setHorizontalAlignment(SwingConstants.CENTER);
 	statusInfoPane.add(point);
 
 	statusBottomPane = new JPanel();
-	statusBottomPane.setBounds(0, 200, 263, 216);
+	statusBottomPane.setOpaque(false);
+	statusBottomPane.setBounds(10, 195, 263, 216);
 	backgroundPane.add(statusBottomPane);
 	statusBottomPane.setLayout(new GridLayout(4, 1, 0, 0));
 
 	statusMypageBtn = new JButton("∏∂¿Ã∆‰¿Ã¡ˆ");
+	statusMypageBtn.setForeground(new Color(255, 255, 255));
+	statusMypageBtn.setBorder(new MatteBorder(1, 1, 0, 0, (Color) new Color(255, 255, 255)));
+	statusMypageBtn.setBackground(new Color(135, 206, 250));
+	statusMypageBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 
 	statusBottomPane.add(statusMypageBtn);
 
 	statusOrderBtn = new JButton("¡÷πÆ");
+	statusOrderBtn.setForeground(new Color(255, 255, 255));
+	statusOrderBtn.setBorder(new MatteBorder(1, 1, 0, 0, (Color) new Color(255, 255, 255)));
+	statusOrderBtn.setBackground(new Color(135, 206, 250));
+	statusOrderBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusBottomPane.add(statusOrderBtn);
 
 	statusMessengerBtn = new JButton("∏ﬁΩ≈¿˙");
+	statusMessengerBtn.setForeground(new Color(255, 255, 255));
+	statusMessengerBtn.setBorder(new MatteBorder(1, 1, 0, 0, (Color) new Color(255, 255, 255)));
+	statusMessengerBtn.setBackground(new Color(135, 206, 250));
+	statusMessengerBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusBottomPane.add(statusMessengerBtn);
 
 	comMoveBtn = new JButton("\uC790\uB9AC\uC774\uB3D9");
+	comMoveBtn.setForeground(new Color(255, 255, 255));
+	comMoveBtn.setBorder(new MatteBorder(1, 1, 0, 0, (Color) new Color(255, 255, 255)));
+	comMoveBtn.setBackground(new Color(135, 206, 250));
+	comMoveBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusBottomPane.add(comMoveBtn);
 
 	logoutBtn = new JButton("∑Œ±◊æ∆øÙ");
+	logoutBtn.setForeground(new Color(255, 255, 255));
+	logoutBtn.setBorder(new MatteBorder(1, 1, 0, 0, (Color) new Color(255, 255, 255)));
+	logoutBtn.setBackground(new Color(135, 206, 250));
+	logoutBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 	statusBottomPane.add(logoutBtn);
 
 	statusImagePane = new JPanel();
-	statusImagePane.setBounds(0, 22, 100, 152);
+	statusImagePane.setOpaque(false);
+	statusImagePane.setBounds(10, 22, 98, 152);
 	backgroundPane.add(statusImagePane);
 
 	statusOrderBtn.addActionListener(listener);
